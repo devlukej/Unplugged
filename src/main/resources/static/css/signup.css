@@ -1,9 +1,9 @@
-/*::-webkit-scrollbar{width: 6px;}*/
-/*::-webkit-scrollbar-track {background-color:#f1f1f1;}*/
-/*::-webkit-scrollbar-thumb {background-color:#D6E4FF;border-radius: 10px;border: solid 1px black}*/
-/*::-webkit-scrollbar-thumb:hover {background: #555;}*/
-/*::-webkit-scrollbar-button:start:decrement,*/
-/*::-webkit-scrollbar-button:end:increment {width:6px;height:10px;background:#D6E4FF;}*/
+::-webkit-scrollbar{width: 3px;}
+::-webkit-scrollbar-track {background-color:#f1f1f1;}
+::-webkit-scrollbar-thumb {background-color:#D6E4FF;border-radius: 10px;}
+::-webkit-scrollbar-thumb:hover {background: #555;}
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {width:3px;height:6px;background:#D6E4FF;}
 
 .rdobtn input[type="radio"] {
     display: none;
@@ -280,6 +280,7 @@ modal-text {
     font-weight: bold;
     margin: 5px 0 5px 32px;
 }
+
 modal-cklabel {
     display: block;
     font-size: 20px;
