@@ -94,7 +94,7 @@ function signUpCheck(){
 
 
     // 학과선택 확인
-    if(major === "학과 선택"){
+    if(major === ""){
         document.getElementById("majorError").innerHTML="학과 선택"
         check = false
     }else{
@@ -102,7 +102,7 @@ function signUpCheck(){
     }
 
     // 기수선택 확인
-    if(year === "기수 선택"){
+    if(year === ""){
         document.getElementById("yearError").innerHTML="기수 선택"
         check = false
     }else{
@@ -110,7 +110,7 @@ function signUpCheck(){
     }
 
     // 세션선택 확인
-    if(session === "세션 선택"){
+    if(session === ""){
         document.getElementById("sessionError").innerHTML="세션 선택"
         check = false
     }else{
@@ -162,3 +162,7 @@ function signUpCheck(){
         },0);
     }
 }
+
+document.getElementsByTagName('major')[0].addEventListener('click', function() {
+    document.getElementById('areabox').style.display = 'block';
+});

@@ -14,6 +14,159 @@
 <!-- HEADER -->
 <div th:insert="common/header.html" class="header"></div>
 
+<!-- 학과 모달 -->
+<div class="major-modal">
+    <div class="modal-top">
+        <div class="modal-title">학과</div>
+    </div>
+    <div class="major-select">
+        <modal-text>임권택영화예술대학</modal-text>
+        <modal-label><input class="radiobtn" type="radio" name="major">영화과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">뮤지컬과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">연기과</modal-label>
+        <modal-text>디자인대학</modal-text>
+        <modal-label><input class="radiobtn" type="radio" name="major">디자인학부</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">패션디자인과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">광고홍보학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">건축학과</modal-label>
+        <modal-text>미디어콘텐츠대학</modal-text>
+        <modal-label><input class="radiobtn" type="radio" name="major">방송영상학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">게임학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">영상애니메이션학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">웹툰학과</modal-label>
+        <modal-text>소프트웨어융합대학</modal-text>
+        <modal-label><input class="radiobtn" type="radio" name="major">소프트웨어학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">정보보안학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">인공지능응용학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">컴퓨터공학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">전자공학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">기계공학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">건축공학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">사회환경공학과</modal-label>
+        <modal-text>글로벌비즈니스대학</modal-text>
+        <modal-label><input class="radiobtn" type="radio" name="major">경영학부</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">국제통상학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">국제물류학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">영어학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">일본어학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">중국어학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">호텔경영학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">관광경영·컨벤션학과</modal-label>
+        <modal-text>International College</modal-text>
+        <modal-label><input class="radiobtn" type="radio" name="major">캠퍼스아시아학과</modal-label>
+        <modal-text>바이오헬스융합대학</modal-text>
+        <modal-label><input class="radiobtn" type="radio" name="major">보건행정학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">임상병리학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">간호학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">치위생학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">방사선학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">작업치료학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">운동처방학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">체육학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">식품영양학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">화장품·신소재학과</modal-label>
+        <modal-text>사회과학대학</modal-text>
+        <modal-label><input class="radiobtn" type="radio" name="major">사회복지학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">청소년상담심리학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">경찰행정학과</modal-label>
+        <modal-text>미래커리어대학</modal-text>
+        <modal-label><input class="radiobtn" type="radio" name="major">ICT융합공학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">사회안전학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">사회복지상담학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">시니어운동처방학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">스포츠레저산업학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major">실용콘텐츠창작학과</modal-label>
+    </div>
+    <div class="modal-choice">
+        <button class="modal-btn" id="major-btn">선택완료</button>
+    </div>
+</div>
+
+<!-- 기수 모달 -->
+<div class="year-modal">
+    <div class="modal-top">
+        <div class="modal-title">기수</div>
+    </div>
+    <div class="year-select">
+        <modal-label><input class="radiobtn" type="radio" name="year">U01</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U02</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U03</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U04</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U05</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U06</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U07</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U08</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U09</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U10</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U11</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U12</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U13</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U14</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U15</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U16</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U17</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U18</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U19</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U20</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U21</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U22</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U23</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U24</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U25</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U26</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U27</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U28</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U29</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U30</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U31</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U32</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U33</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U34</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U35</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U36</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U37</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U38</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U39</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U40</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U41</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U42</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U43</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U44</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U45</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U46</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U47</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U48</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U49</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year">U50</modal-label>
+    </div>
+    <div class="modal-choice">
+        <button class="modal-btn" id="year-btn">선택완료</button>
+    </div>
+</div>
+
+
+<!-- 세션 모달 -->
+<div class="session-modal">
+    <div class="modal-top">
+        <div class="modal-title">기수</div>
+    </div>
+    <div class="session-select">
+        <modal-cklabel><input class="checkbox" type="checkbox" name="session">보컬</modal-cklabel>
+        <modal-cklabel><input class="checkbox" type="checkbox" name="session">통기타</modal-cklabel>
+        <modal-cklabel><input class="checkbox" type="checkbox" name="session">일렉</modal-cklabel>
+        <modal-cklabel><input class="checkbox" type="checkbox" name="session">베이스</modal-cklabel>
+        <modal-cklabel><input class="checkbox" type="checkbox" name="session">건반</modal-cklabel>
+        <modal-cklabel><input class="checkbox" type="checkbox" name="session">드럼</modal-cklabel>
+        <modal-cklabel><input class="checkbox" type="checkbox" name="session">없음</modal-cklabel>
+    </div>
+    <div class="modal-choice">
+        <button class="modal-btn" id="session-btn">선택완료</button>
+    </div>
+</div>
+
+<!-- 직급 모달 -->
+
+
 <div class="areabox">
 
     <div class="slide">
@@ -81,182 +234,85 @@
     </div>
 
     <div class="name">
-        <d>이름</d><s>*</s>
+        <d>이름</d>
+        <s>*</s>
         <input class="textarea" id="name" type="text" placeholder="이름 입력">
     </div>
     <div id="nameError" class="error"></div>
     <div class="id">
-        <d>아이디</d><s>*</s>
+        <d>아이디</d>
+        <s>*</s>
         <input class="textarea" id="id" type="text" placeholder="아이디 입력">
     </div>
     <div id="idError" class="error"></div>
     <div class="pw">
-        <d>비밀번호</d><s>*</s>
+        <d>비밀번호</d>
+        <s>*</s>
         <input class="textarea" id="pw" type="password" placeholder="비밀번호 입력">
     </div>
     <div id="pwError" class="error"></div>
     <div class="checkpw">
-        <d>재확인</d><s>*</s>
+        <d>재확인</d>
+        <s>*</s>
         <input class="textarea" id="checkpw" type="password" placeholder="비밀번호 재입력">
     </div>
     <div id="checkpwError" class="error"></div>
     <div class="birthday">
-        <d>생년월일</d><s>*</s>
+        <d>생년월일</d>
+        <s>*</s>
         <input class="textarea" id="birthday" type="date" placeholder="생년월일 입력">
     </div>
     <div id="birthdayError" class="error"></div>
     <div class="phone">
-        <d>연락처</d><s>*</s>
+        <d>연락처</d>
+        <s>*</s>
         <f>
-        <input class="phonebox" id="phone1" type="text" maxlength="3" oninput="changePhone1()">
+            <input class="phonebox" id="phone1" type="text" maxlength="3" oninput="changePhone1()">
             -
-        <input class="phonebox" id="phone2" type="text" maxlength="4" oninput="changePhone2()">
+            <input class="phonebox" id="phone2" type="text" maxlength="4" oninput="changePhone2()">
             -
-        <input class="phonebox" id="phone3" type="text" maxlength="4" oninput="changePhone3()">
+            <input class="phonebox" id="phone3" type="text" maxlength="4" oninput="changePhone3()">
         </f>
     </div>
     <div id="phoneError" class="error"></div>
     <div class="studentNum">
-        <d>학번</d><s>*</s><input class="textarea" id="studentNum" type="text" placeholder="학번 입력">
+        <d>학번</d>
+        <s>*</s><input class="textarea" id="studentNum" type="text" placeholder="학번 입력">
     </div>
     <div id="studentNumError" class="error"></div>
     <div class="major">
-        <d>학과</d><s>*</s>
-        <select class="textarea" id="major">
-            <option selected disabled>학과 선택</option>
-            <option>영화과</option>
-            <option>뮤지컬과</option>
-            <option>디자인학부</option>
-            <option>패션디자인학과</option>
-            <option>광고홍보학과</option>
-            <option>건축학과</option>
-            <option>방송영상학과</option>
-            <option>게임학과</option>
-            <option>영상애니메이션학과</option>
-            <option>웹툰학과</option>
-            <option>소프트웨어학과</option>
-            <option>정보보안학과</option>
-            <option>인공지능응용학과</option>
-            <option>컴퓨터공학과</option>
-            <option>전자공학과</option>
-            <option>기계공학과</option>
-            <option>건축공학과</option>
-            <option>사회환경공학과</option>
-            <option>경영학부</option>
-            <option>국제통상학과</option>
-            <option>국제물류학과</option>
-            <option>영어학과</option>
-            <option>일본어학과</option>
-            <option>중국어학과</option>
-            <option>호텔경영학과</option>
-            <option>관광경영·컨벤션학과</option>
-            <option>캠퍼스아시아학과</option>
-            <option>보건행정학과</option>
-            <option>임상병리학과</option>
-            <option>간호학과</option>
-            <option>치위생학과</option>
-            <option>방사선학과</option>
-            <option>작업치료학과</option>
-            <option>운동처방학과</option>
-            <option>체육학과</option>
-            <option>식품영양학과</option>
-            <option>화장품·신소재학과</option>
-            <option>사회복지학과</option>
-            <option>청소년상담심리학과</option>
-            <option>경찰행정학과</option>
-            <option>ITC융합공학과</option>
-            <option>사회안전학과</option>
-            <option>사회복지상담학과</option>
-            <option>시니어운동처방학과</option>
-            <option>스포츠레저산업학과</option>
-            <option>실용컨텐츠창작학과</option>
-        </select>
+        <d>학과</d>
+        <s>*</s>
+        <input class="textarea" id="major" type="text" placeholder="학과 선택">
     </div>
     <div id="majorError" class="error"></div>
     <div class="year">
-        <d>기수</d><s>*</s>
-        <select class="textarea" id="year">
-            <option selected disabled>기수 선택</option>
-            <option>U01</option>
-            <option>U02</option>
-            <option>U03</option>
-            <option>U04</option>
-            <option>U05</option>
-            <option>U06</option>
-            <option>U07</option>
-            <option>U08</option>
-            <option>U09</option>
-            <option>U10</option>
-            <option>U11</option>
-            <option>U12</option>
-            <option>U13</option>
-            <option>U14</option>
-            <option>U15</option>
-            <option>U16</option>
-            <option>U17</option>
-            <option>U18</option>
-            <option>U19</option>
-            <option>U20</option>
-            <option>U21</option>
-            <option>U2</option>
-            <option>U23</option>
-            <option>U24</option>
-            <option>U25</option>
-            <option>U26</option>
-            <option>U27</option>
-            <option>U28</option>
-            <option>U29</option>
-            <option>U30</option>
-            <option>U31</option>
-            <option>U32</option>
-            <option>U33</option>
-            <option>U34</option>
-            <option>U35</option>
-            <option>U36</option>
-            <option>U37</option>
-            <option>U38</option>
-            <option>U39</option>
-            <option>U40</option>
-            <option>U41</option>
-            <option>U42</option>
-            <option>U43</option>
-            <option>U44</option>
-            <option>U45</option>
-            <option>U46</option>
-            <option>U47</option>
-            <option>U48</option>
-            <option>U49</option>
-            <option>U50</option>
-        </select>
+        <d>기수</d>
+        <s>*</s>
+        <input class="textarea" id="year" type="text" placeholder="기수 선택">
     </div>
     <div id="yearError" class="error"></div>
 
     <div class="session">
-        <d>세션</d><s>*</s>
-        <select class="textarea" id="session">
-            <option selected disabled>세션 선택</option>
-            <option>보컬</option>
-            <option>통기타</option>
-            <option>일렉</option>
-            <option>베이스</option>
-            <option>건반</option>
-            <option>드럼</option>
-            <option>없음</option>
-        </select>
+        <d>세션</d>
+        <s>*</s>
+        <input class="textarea" id="session" type="text" placeholder="세션 선택">
     </div>
     <div id="sessionError" class="error"></div>
 
     <div class="position">
-        <d>직급</d><s>*</s>
-        <label><input id="position_manager" type="radio" name="position">간부</label>
-        <label><input id="position_user" type="radio" name="position">동아리원</label>
+        <d>직급</d>
+        <s>*</s>
+        <label class="rdobtn"><input id="position_manager" type="radio" name="position"><span>간부</span></label>
+        <label class="rdobtn"><input id="position_user" type="radio" name="position"><span>동아리원</span></label>
     </div>
     <div id="positionError" class="error"></div>
 
     <div class="gender">
-        <d>성별</d><s>*</s>
-        <label><input id="gender_man" type="radio" name="gender">남자</label>
-        <label><input id="gender_woman" type="radio" name="gender">여자</label>
+        <d>성별</d>
+        <s>*</s>
+        <label class="rdobtn"><input id="gender_man" type="radio" name="gender"><span>남자</span></label>
+        <label class="rdobtn"><input id="gender_woman" type="radio" name="gender"><span>여자</span></label>
     </div>
     <div id="genderError" class="error"></div>
     <div class="agree">
@@ -266,21 +322,37 @@
 <div class="signup">
     <button class="btn" id="signUpButton" onclick="signUpCheck()">가입하기</button>
 </div>
-<!--<script>-->
-<!--    $(".major").click(function () {-->
-<!--        $(".slide-div").animate({left: "0px"}, 500);-->
-<!--        $(".modal2").show();-->
-<!--    });-->
+<script>
+    $("#major").click(function () {
+        $(".major-modal").show();
+        $(".modal2").show();
+    });
 
-<!--    $(".div-close").click(function () {-->
-<!--        $(".slide-div").animate({left: "-200px"}, 500);-->
-<!--        $(".modal2").hide();-->
-<!--    });-->
+    $(".modal2").click(function () {
+        $(".major-modal").hide();
+        $(".modal2").hide();
+    });
 
-<!--    $(".modal").click(function () {-->
-<!--        $(".slide-div").animate({left: "-200px"}, 500);-->
-<!--        $(".modal2").hide();-->
-<!--    });-->
-<!--</script>-->
+    $("#year").click(function () {
+        $(".year-modal").show();
+        $(".modal2").show();
+    });
+
+    $(".modal2").click(function () {
+        $(".year-modal").hide();
+        $(".modal2").hide();
+    });
+
+    $("#session").click(function () {
+        $(".session-modal").show();
+        $(".modal2").show();
+    });
+
+    $(".modal2").click(function () {
+        $(".session-modal").hide();
+        $(".modal2").hide();
+    });
+
+</script>
 </body>
 </html>
