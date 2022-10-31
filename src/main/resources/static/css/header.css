@@ -1,0 +1,139 @@
+.header {
+    width: 100%;
+    height: 62px;
+    background-color: #D6E4FF;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    position: relative;
+}
+
+.header .div-open {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+
+.div-close img {
+    width: 100%;
+}
+
+dt {
+    border-bottom: 1px solid black;
+    padding: 4px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    background-color: #FFFFFF;
+}
+
+.header h1 {
+    font-weight: 800;
+    line-height: 60px;
+}
+.modal{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 9;
+}
+
+.slide-div {
+    position: fixed;
+    left: -200px;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    z-index: 10;
+    background: #FFFFFF;
+    overflow: auto;
+}
+
+li {
+    padding: 30px 10px 0;
+}
+
+.slide-div span {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.slide-div .div-close {
+    width: 27px;
+    height: 27px;
+    float: right;
+}
+
+.slide-top {
+    background: #D6E4FF;
+    width: 100%;
+    height: auto;
+    padding: 5px 5px 18px 5px;
+}
+
+.slide-bottom {
+    width: 100%;
+    height: auto;
+}
+
+.slide-div .menu_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+}
+
+.info {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.profile {
+    width: 30%;
+    align-content: center;
+}
+
+.login{
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.choice {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: normal;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+b {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.menu-slide{
+    float: left;
+}
+.box1{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 9px 18px;
+    height: auto;
+    overflow: hidden;
+}

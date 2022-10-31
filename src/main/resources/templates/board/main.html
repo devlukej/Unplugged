@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<!-- HEADER -->
+<div th:insert="common/header.html" class="header"></div>
+
+<div class="main">
+    <div class="box">
+        <dl class="notice">
+            <dt style="font-weight: bold">
+                <div>공지사항</div>
+                <a class="plus" href="#">+ 더보기</a>
+            </dt>
+            <ul>
+                <li><a href="#"><span>1</span> - now having a board</a></li>
+                <li><a href="#"><span>2</span> - now having a board</a></li>
+                <li><a href="#"><span>3</span> - now having a board</a></li>
+                <li><a href="#"><span>4</span> - now having a board</a></li>
+                <li><a href="#"><span>5</span> - now having a board</a></li>
+            </ul>
+        </dl>
+    </div>
+    <div class="box">
+        <dl class="notice">
+            <ul>
+                <dt style="font-weight: bold">
+                    <div>행사일정</div>
+                    <a class="plus" href="#">+ 더보기</a>
+                </dt>
+                <li><a href="#"><span>1</span> - now having a board</a></li>
+                <li><a href="#"><span>2</span> - now having a board</a></li>
+                <li><a href="#"><span>3</span> - now having a board</a></li>
+                <li><a href="#"><span>4</span> - now having a board</a></li>
+                <li><a href="#"><span>5</span> - now having a board</a></li>
+            </ul>
+        </dl>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div th:insert="common/footer.html" class="footer"></div>
+
+</body>
+</html>

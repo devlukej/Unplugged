@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Unpluged</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="slide">
+    <div class="slide-div">
+
+        <div class="slide-top">
+
+            <div class="menu_top">
+                <span>UNPLUGGED</span>
+                <div class="div-close"><img src="/img/Close.png"/></div>
+            </div>
+
+            <div class="info">
+
+                <div class="profile">
+                    <img src="/img/profile.png" width="51" height="51"/>
+                </div>
+
+                <div class="login">
+                    <div class="msg">
+                        <b>로그인이 필요합니다.</b>
+                    </div>
+                    <div class="choice">
+                        <a sec:authorize="isAnonymous()" th:href="@{/user/login}">로그인</a>
+                        <a sec:authorize="isAuthenticated()" th:href="@{/user/info}">내정보</a>
+                        <a sec:authorize="isAnonymous()" th:href="@{/user/signup}">회원가입</a>
+                        <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">로그아웃</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="slide-bottom">
+
+            <div class="box1">
+                <dl>
+                    <dt>동아리원</dt>
+                    <ul class="menu-slide">
+                        <li><a href="#"><span>공지사항</span></a></li>
+                        <li><a href="#"><span>행사일정</span></a></li>
+                        <li><a href="#"><span>투표하기</span></a></li>
+                        <li><a href="#"><span>악보공유</span></a></li>
+                        <li><a href="#"><span>장부확인</span></a></li>
+                        <li><a href="#"><span>건의사항</span></a></li>
+                    </ul>
+                </dl>
+            </div>
+
+            <div class="box1">
+                <dl>
+                    <dt>간부</dt>
+                    <ul class="menu-slide">
+                        <li><a href="#"><span>가입승인</span></a></li>
+                        <li><a href="#"><span>명단관리</span></a></li>
+                    </ul>
+                </dl>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal">
+    </div>
+</div>
+
+<div class="header">
+    <H1 th:href="@{/}">UNPLUGGED</H1>
+
+    <div class="div-open"><img src="/img/menu.png"/></div>
+</div>
+
+<script>
+
+    $(".div-open").click(function () {
+        $(".slide-div").animate({left: "0px"}, 500);
+        $(".modal").show();
+    });
+
+    $(".div-close").click(function () {
+        $(".slide-div").animate({left: "-200px"}, 500);
+        $(".modal").hide();
+    });
+
+    $(".modal").click(function () {
+        $(".slide-div").animate({left: "-200px"}, 500);
+        $(".modal").hide();
+    });
+
+</script>
+
+</body>
+</html>

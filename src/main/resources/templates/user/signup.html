@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/signup.css}">
+    <script src="signup.js"></script>
+</head>
+<body>
+<form th:action="@{/user/signup}" method="post">
+    <!-- HEADER -->
+    <div th:insert="common/header.html" class="header"></div>
+
+    <div class="signup">
+
+        <div class="name">
+            이름<s>*</s>
+            <input class="textarea" id="name" type="text" placeholder="이름 입력">
+            <div id="nameError" class="error"></div>
+        </div>
+        <div class="id">
+            아이디<s>*</s>
+            <input class="textarea" id="id" type="text" placeholder="아이디 입력">
+            <div id="idError" class="error"></div>
+        </div>
+        <div class="pw">
+            비밀번호<s>*</s>
+            <input class="textarea" id="pw" type="password" placeholder="비밀번호 입력">
+            <div id="passwordError" class="error"></div>
+        </div>
+        <div class="checkpw">
+            재확인<s>*</s>
+            <input class="textarea" id="checkpw" type="password" placeholder="비밀번호 재입력">
+            <div id="passwordCheckError" class="error"></div>
+        </div>
+        <div class="birthday">
+            생년월일<s>*</s>
+            <input class="textarea" id="birthday" type="text" placeholder="생년월일">
+            <div id="birthdayError" class="error"></div>
+        </div>
+        <div class="phone">
+            연락처<s>*</s>
+            <input class="textarea" id="phone" type="text" placeholder="연락처">
+            <div id="phoneError" class="error"></div>
+        </div>
+        <div class="studentNum">
+            학번<s>*</s><input class="textarea" id="studentNum" type="text" placeholder="학번 입력">
+            <div id="studentNumError" class="error"></div>
+        </div>
+        <div class="major">
+            학과<s>*</s>
+            <select class="textarea" id="major">
+                <option selected disabled>학과 선택</option>
+                <option>영화과</option>
+                <option>뮤지컬과</option>
+                <option>디자인학부</option>
+                <option>패션디자인학과</option>
+                <option>광고홍보학과</option>
+                <option>건축학과</option>
+                <option>방송영상학과</option>
+                <option>게임학과</option>
+                <option>영상애니메이션학과</option>
+                <option>웹툰학과</option>
+                <option>소프트웨어학과</option>
+                <option>정보보안학과</option>
+                <option>인공지능응용학과</option>
+                <option>컴퓨터공학과</option>
+                <option>전자공학과</option>
+                <option>기계공학과</option>
+                <option>건축공학과</option>
+                <option>사회환경공학과</option>
+                <option>경영학부</option>
+                <option>국제통상학과</option>
+                <option>국제물류학과</option>
+                <option>영어학과</option>
+                <option>일본어학과</option>
+                <option>중국어학과</option>
+                <option>호텔경영학과</option>
+                <option>관광경영·컨벤션학과</option>
+                <option>캠퍼스아시아학과</option>
+                <option>보건행정학과</option>
+                <option>임상병리학과</option>
+                <option>간호학과</option>
+                <option>치위생학과</option>
+                <option>방사선학과</option>
+                <option>작업치료학과</option>
+                <option>운동처방학과</option>
+                <option>체육학과</option>
+                <option>식품영양학과</option>
+                <option>화장품·신소재학과</option>
+                <option>사회복지학과</option>
+                <option>청소년상담심리학과</option>
+                <option>경찰행정학과</option>
+                <option>ITC융합공학과</option>
+                <option>사회안전학과</option>
+                <option>사회복지상담학과</option>
+                <option>시니어운동처방학과</option>
+                <option>스포츠레저산업학과</option>
+                <option>실용컨텐츠창작학과</option>
+            </select>
+            <div id="majorError" class="error"></div>
+        </div>
+        <div class="year">
+            기수<s>*</s>
+            <select class="textarea" id="year">
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+                <option>06</option>
+                <option>07</option>
+                <option>08</option>
+                <option>09</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+                <option>32</option>
+                <option>33</option>
+                <option>34</option>
+                <option>35</option>
+                <option>36</option>
+                <option>37</option>
+                <option>38</option>
+                <option>39</option>
+                <option>40</option>
+                <option>41</option>
+                <option>42</option>
+                <option>43</option>
+                <option>44</option>
+                <option>45</option>
+                <option>46</option>
+                <option>47</option>
+                <option>48</option>
+                <option>49</option>
+                <option>50</option>
+            </select>
+            <div id="yearError" class="error"></div>
+        </div>
+        <div class="session">
+            세션<s>*</s>
+            <select class="textarea" id="session">
+                <option>보컬</option>
+                <option>통기타</option>
+                <option>일렉</option>
+                <option>베이스</option>
+                <option>건반</option>
+                <option>드럼</option>
+                <option>없음</option>
+            </select>
+            <div id="sessionError" class="error"></div>
+        </div>
+        <div class="position">
+            직급<s>*</s>
+            <input id="position_manager" type="radio" name="position">간부
+            <input id="position_user" type="radio" name="position">동아리원
+            <div id="positionError" class="error"></div>
+        </div>
+        <div class="gender">
+            성별<s>*</s>
+            <input id="gender_man" type="radio" name="gender">남자
+            <input id="gender_woman" type="radio" name="gender">여자
+            <div id="genderError" class="error"></div>
+        </div>
+        <div class="agree">
+            약관동의
+        </div>
+    </div>
+    <button class="btn" id="signUpButton" onclick="signUpCheck()">가입하기</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,80 @@
+.signup {
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+s {
+    color: #FF0000;
+    text-decoration: none;
+}
+
+.name {
+    padding: 30px 0 20px 0;
+}
+
+.textarea {
+    padding-left: 10px;
+    background-color: rgba(214, 228, 255, 0.5);
+    float: right;
+    margin-right: 10px;
+    border-radius: 20px;
+    width: 70%;
+    height: 40px;
+    border: solid black 1px;
+}
+
+.id {
+    padding: 20px 0 20px 0;
+}
+
+.pw {
+    padding: 20px 0 20px 0;
+}
+
+.checkpw {
+    padding: 20px 0 20px 0;
+}
+
+.birthday {
+    padding: 20px 0 20px 0;
+}
+
+.phone {
+    padding: 20px 0 20px 0;
+}
+
+.studentNum {
+    padding: 20px 0 20px 0;
+}
+
+.major {
+    padding: 20px 0 20px 0;
+}
+
+.year {
+    padding: 20px 0 20px 0;
+}
+
+.session {
+    padding: 20px 0 20px 0;
+}
+
+.position {
+    padding: 20px 0 20px 0;
+}
+
+.gender {
+    padding: 20px 0 20px 0;
+}
+
+.btn {
+    display: block;
+    margin: 10px auto 10px auto;
+    border: 1px solid black;
+    background-color: #D6E4FF;
+    width: 95%;
+    height: 54px;
+    border-radius: 5px;
+    font-size: 20px;
+}
