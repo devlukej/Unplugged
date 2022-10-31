@@ -1,16 +1,18 @@
-.signup {
-    font-weight: bold;
-    font-size: 20px;
+.areabox {
     margin-left: 10px;
 }
 
 s {
     color: #FF0000;
     text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
 }
 
-.name {
-    padding: 30px 0 20px 0;
+d {
+    font-weight: bold;
+    font-size: 20px;
+    vertical-align: middle;
 }
 
 .textarea {
@@ -23,49 +25,118 @@ s {
     height: 40px;
     border: solid black 1px;
 }
+f {
+    margin-right: 10px;
+    float: right;
+    width: 70%;
+    height: 40px;
+}
+.phonebox {
+    background-color: rgba(214, 228, 255, 0.5);
+    border-radius: 20px;
+    height: 40px;
+    border: solid black 1px;
+    text-align: center;
+}
+
+#phone1 {
+    width: 25%;
+}
+
+#phone2 {
+    width: 30%;
+}
+
+#phone3 {
+    width: 30%;
+}
+
+label {
+    width: 35%;
+    float: right;
+    margin-top: 5px;
+}
+
+.name {
+    display: block;
+    margin: 30px 0 0 0;
+    width: 100%;
+    height: 40px;
+}
 
 .id {
-    padding: 20px 0 20px 0;
+    display: inline-block;
+    margin: 5px 0 0 0;
+    width: 100%;
+    height: 40px;
 }
 
 .pw {
-    padding: 20px 0 20px 0;
+    display: inline-block;
+    margin: 5px 0 0 0;
+    width: 100%;
+    height: 40px;
 }
 
 .checkpw {
-    padding: 20px 0 20px 0;
+    display: inline-block;
+    margin: 5px 0 0 0;
+    width: 100%;
+    height: 40px;
 }
 
 .birthday {
-    padding: 20px 0 20px 0;
+    display: inline-block;
+    margin: 5px 0 0 0;
+    width: 100%;
+    height: 40px;
 }
 
 .phone {
-    padding: 20px 0 20px 0;
+    display: inline-block;
+    margin: 5px 0 0 0;
+    width: 100%;
+    height: 40px;
 }
 
 .studentNum {
-    padding: 20px 0 20px 0;
+    display: inline-block;
+    margin: 5px 0 0 0;
+    width: 100%;
+    height: 40px;
 }
 
 .major {
-    padding: 20px 0 20px 0;
+    display: inline-block;
+    margin: 5px 0 0 0;
+    width: 100%;
+    height: 40px;
 }
 
 .year {
-    padding: 20px 0 20px 0;
+    display: inline-block;
+    margin: 5px 0 0 0;
+    width: 100%;
+    height: 40px;
 }
 
 .session {
-    padding: 20px 0 20px 0;
+    display: inline-block;
+    margin: 5px 0 0 0;
+    width: 100%;
+    height: 40px;
 }
 
 .position {
-    padding: 20px 0 20px 0;
+    display: inline-block;
+    width: 100%;
+    height: 31px;
 }
 
 .gender {
-    padding: 20px 0 20px 0;
+    display: inline-block;
+    width: 100%;
+    height: 31px;
 }
 
 .btn {
@@ -77,4 +148,26 @@ s {
     height: 54px;
     border-radius: 5px;
     font-size: 20px;
+}
+
+.error{
+    padding: 5px 0;
+    width: 70%;
+    float: right;
+    font-size: 1px;
+    height: 25px;
+    color:red;
+    font-weight: 700;
+}
+
+body{
+    width:100%;
+    height:100vh;
+}
+.modal2{
+    position: fixed;
+    background: rgba(0, 0, 0, 0.3);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

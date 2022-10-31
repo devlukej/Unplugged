@@ -8,13 +8,16 @@ function signUpCheck(){
     let major = document.getElementById("major").value
     let session = document.getElementById("session").value
     let year = document.getElementById("year").value
-    let phone = document.getElementById("phone").value
+    let phone1 = document.getElementById("phone1").value
+    let phone2 = document.getElementById("phone2").value
+    let phone3 = document.getElementById("phone3").value
+
     let studentNum = document.getElementById("studentNum").value
 
 
 
-    let position_manager = document.getElementById("position_manager").value
-    let position_user = document.getElementById("position_user").value
+    let position_manager = document.getElementById("position_manager").checked
+    let position_user = document.getElementById("position_user").checked
     let gender_man = document.getElementById("gender_man").checked
     let gender_woman = document.getElementById("gender_woman").checked
     let check = true;
@@ -39,22 +42,22 @@ function signUpCheck(){
 
     // 비밀번호 확인
     if(pw !== checkpw){
-        document.getElementById("passwordError").innerHTML=""
-        document.getElementById("passwordCheckError").innerHTML="비밀번호가 동일하지 않습니다."
+        document.getElementById("pwError").innerHTML=""
+        document.getElementById("checkpwError").innerHTML="비밀번호가 동일하지 않습니다."
         check = false
     }else{
-        document.getElementById("passwordError").innerHTML=""
-        document.getElementById("passwordCheckError").innerHTML=""
+        document.getElementById("pwError").innerHTML=""
+        document.getElementById("checkpwError").innerHTML=""
     }
 
     if(pw===""){
-        document.getElementById("passwordError").innerHTML="비밀번호를 입력해주세요."
+        document.getElementById("pwError").innerHTML="비밀번호를 입력해주세요."
         check = false
     }else{
         //document.getElementById("passwordError").innerHTML=""
     }
     if(checkpw===""){
-        document.getElementById("passwordCheckError").innerHTML="비밀번호를 다시 입력해주세요."
+        document.getElementById("checkpwError").innerHTML="비밀번호를 다시 입력해주세요."
         check = false
     }else{
         //document.getElementById("passwordCheckError").innerHTML=""
@@ -62,16 +65,28 @@ function signUpCheck(){
 
 
     // 연락처 확인
-    if(phone === "연락처 확인"){
+    if(phone1 === "" || phone1.length !== 3){
+        document.getElementById("phoneError").innerHTML="연락처 확인"
+        check = false
+    }else{
+        document.getElementById("phoneError").innerHTML=""
+    }
+    if(phone2 === "" || phone2.length !== 4){
+        document.getElementById("phoneError").innerHTML="연락처 확인"
+        check = false
+    }else{
+        document.getElementById("phoneError").innerHTML=""
+    }
+    if(phone3 === "" || phone3.length !== 4){
         document.getElementById("phoneError").innerHTML="연락처 확인"
         check = false
     }else{
         document.getElementById("phoneError").innerHTML=""
     }
 
-    // 학번선택 확인
-    if(studentNum === "학번 선택"){
-        document.getElementById("studentNumError").innerHTML="학번 선택"
+    // 학번입력 확인
+    if(studentNum === ""  || studentNum.length !== 8){
+        document.getElementById("studentNumError").innerHTML="학번 입력"
         check = false
     }else{
         document.getElementById("studentNumError").innerHTML=""
@@ -103,7 +118,7 @@ function signUpCheck(){
     }
 
     // 생년월일 확인
-    if(birthday === "생년월일 확인"){
+    if(birthday === ""){
         document.getElementById("birthdayError").innerHTML="생년월일 확인"
         check = false
     }else{
@@ -130,8 +145,8 @@ function signUpCheck(){
     if(check){
         document.getElementById("nameError").innerHTML=""
         document.getElementById("idError").innerHTML=""
-        document.getElementById("passwordError").innerHTML=""
-        document.getElementById("passwordCheckError").innerHTML=""
+        document.getElementById("pwError").innerHTML=""
+        document.getElementById("checkpwError").innerHTML=""
         document.getElementById("phoneError").innerHTML=""
         document.getElementById("studentNumError").innerHTML=""
         document.getElementById("majorError").innerHTML=""
@@ -139,6 +154,7 @@ function signUpCheck(){
         document.getElementById("sessionError").innerHTML=""
         document.getElementById("positionError").innerHTML=""
         document.getElementById("genderError").innerHTML=""
+        document.getElementById("birthdayError").innerHTML=""
 
         //비동기 처리이벤트
         setTimeout(function() {
