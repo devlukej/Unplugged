@@ -1,22 +1,48 @@
-::-webkit-scrollbar {
-    width: 3px;
+.modal-select::-webkit-scrollbar {
+    width: 5px;
 }
 
-::-webkit-scrollbar-track {
+.modal-select::-webkit-scrollbar-track {
     background-color: #f1f1f1;
 }
 
-::-webkit-scrollbar-thumb {
+.modal-select::-webkit-scrollbar-thumb {
+    background-clip: padding-box;
     background-color: #D6E4FF;
     border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb:hover {
+.modal-select::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
 
-::-webkit-scrollbar-button:start:decrement,
-::-webkit-scrollbar-button:end:increment {
+.modal-select::-webkit-scrollbar-button:start:decrement,
+.modal-select::-webkit-scrollbar-button:end:increment {
+    width: 3px;
+    height: 6px;
+    background: #D6E4FF;
+}
+
+.areabox::-webkit-scrollbar {
+    width: 5px;
+}
+
+.areabox::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+.areabox::-webkit-scrollbar-thumb {
+    background-clip: padding-box;
+    background-color: #D6E4FF;
+    border-radius: 10px;
+}
+
+.areabox::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.areabox::-webkit-scrollbar-button:start:decrement,
+.areabox::-webkit-scrollbar-button:end:increment {
     width: 3px;
     height: 6px;
     background: #D6E4FF;
@@ -52,7 +78,9 @@
     padding-top: 60px;
     margin-left: 10px;
 }
-
+.body {
+    overflow: auto;
+}
 s {
     color: #FF0000;
     text-decoration: none;
@@ -224,18 +252,6 @@ body {
     height: 100vh;
 }
 
-.modal2 {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
-    display: none;
-    z-index: 9;
-}
-
 .modal-title {
     display: block;
     vertical-align: top;
@@ -353,7 +369,6 @@ modal-cklabel {
     top: -1px;
     left: 0;
     right: 0;
-    z-index: 4;
 }
 
 .modal-choice {
@@ -361,10 +376,9 @@ modal-cklabel {
     width: 100%;
     height: 10%;
     position: sticky;
-    bottom: -1px;
+    bottom: 0;
     left: 0;
     right: 0;
-    z-index: 4;
 }
 
 .major-modal {
@@ -380,13 +394,6 @@ modal-cklabel {
     overflow-y: scroll;
 }
 
-.major-select {
-    overflow: auto;
-    width: 100%;
-    height: 80%;
-    position: relative;
-}
-
 .year-modal {
     display: none;
     position: fixed;
@@ -398,13 +405,6 @@ modal-cklabel {
     transform: translate(-50%, -50%);
     background: #FFFFFF;
     overflow-y: scroll;
-}
-
-.year-select {
-    overflow: auto;
-    width: 100%;
-    height: 80%;
-    position: relative;
 }
 
 .session-modal {
@@ -420,7 +420,7 @@ modal-cklabel {
     overflow-y: scroll;
 }
 
-.session-select {
+.modal-select {
     overflow: auto;
     width: 100%;
     height: 80%;

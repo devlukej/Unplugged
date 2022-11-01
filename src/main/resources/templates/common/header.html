@@ -35,7 +35,7 @@
                     <div class="choice">
                         <a sec:authorize="isAnonymous()" th:href="@{/login}">로그인</a>
                         <a sec:authorize="isAuthenticated()" th:href="@{/info}">내정보</a>
-                        <a sec:authorize="isAnonymous()" th:href="@{/signup}">회원가입</a>
+                        <a sec:authorize="isAnonymous()" th:href="@{/signup}" id="signup">회원가입</a>
                         <a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
                     </div>
                 </div>
@@ -77,12 +77,14 @@
 </div>
 
 <div class="header">
-    <H1 th:href="@{/}">UNPLUGGED</H1>
+    <a th:href="@{/}" id="title">UNPLUGGED</a>
 
     <div class="div-open"><img src="/img/menu.png"/></div>
 </div>
 
 <script>
+
+    document.getElementById("title").innerText = "UNPLUGGED";
 
     $(".div-open").click(function () {
         $(".slide-div").animate({left: "0px"}, 500);

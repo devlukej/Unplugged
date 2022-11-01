@@ -19,7 +19,7 @@
     <div class="modal-top">
         <div class="modal-title">학과</div>
     </div>
-    <div class="major-select">
+    <div class="modal-select" id="major-select">
         <modal-text>임권택영화예술대학</modal-text>
         <modal-label><label><input class="radiobtn" type="radio" name="major" value="영화과">영화과</label></modal-label>
         <modal-label><label><input class="radiobtn" type="radio" name="major" value="뮤지컬과">뮤지컬과</label></modal-label>
@@ -116,7 +116,7 @@
     <div class="modal-top">
         <div class="modal-title">기수</div>
     </div>
-    <div class="year-select">
+    <div class="modal-select">
         <modal-label><label><input class="radiobtn" type="radio" name="year" value="U01">U01</label></modal-label>
         <modal-label><label><input class="radiobtn" type="radio" name="year" value="U02">U02</label></modal-label>
         <modal-label><label><input class="radiobtn" type="radio" name="year" value="U03">U03</label></modal-label>
@@ -179,7 +179,7 @@
     <div class="modal-top">
         <div class="modal-title">세션</div>
     </div>
-    <div class="session-select">
+    <div class="modal-select">
         <modal-cklabel><input class="checkbox" type="checkbox" name="session" value="보컬">보컬</modal-cklabel>
         <modal-cklabel><input class="checkbox" type="checkbox" name="session" value="통기타">통기타</modal-cklabel>
         <modal-cklabel><input class="checkbox" type="checkbox" name="session" value="일렉">일렉</modal-cklabel>
@@ -193,7 +193,8 @@
     </div>
 </div>
 
-<form th:action="@{/signup}" method="post">
+<div class="body">
+<!--<form th:action="@{/signup}" method="post">-->
 
 <div class="areabox">
     <div class="name">
@@ -258,7 +259,6 @@
         <d>학과</d>
         <s>*</s>
         <input class="textarea" id="major" type="text" placeholder="학과 선택" readonly>
-        <div id="result"></div>
     </div>
     <div id="majorError" class="error"></div>
 
@@ -301,9 +301,11 @@
     <button class="btn" id="signUpButton" onclick="signUpCheck()">가입하기</button>
 </div>
 
-</form>
+</div>
 
-
+<!--</form>-->
+<div class="modal2">
+</div>
 <script>
 
 
@@ -366,6 +368,8 @@
         });
 
     });
+
+    document.getElementById("title").innerText = "회원가입";
 
 </script>
 </body>

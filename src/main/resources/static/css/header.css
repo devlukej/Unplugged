@@ -2,10 +2,9 @@
     width: 100%;
     height: 62px;
     background-color: #D6E4FF;
-    font-weight: bold;
-    font-size: 12px;
-    text-align: center;
     position: fixed;
+    text-align: center;
+
     top: 0;
     left: 0;
     right: 0;
@@ -35,6 +34,7 @@ dt {
     position: sticky;
     top: 0;
     background-color: #FFFFFF;
+    font-weight: bold;
 }
 
 .header h1 {
@@ -122,8 +122,7 @@ li {
 }
 
 a{
-    color: inherit;
-    text-decoration: none;
+    font-size: 12px;
 }
 
 b {
@@ -131,6 +130,11 @@ b {
     font-weight: bold;
 }
 
+#title {
+    font-size: 19px;
+    font-weight: bold;
+
+}
 .menu-slide{
     float: left;
 }
