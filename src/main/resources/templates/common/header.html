@@ -33,10 +33,10 @@
                         <b>로그인이 필요합니다.</b>
                     </div>
                     <div class="choice">
-                        <a sec:authorize="isAnonymous()" th:href="@{/user/login}">로그인</a>
+                        <a sec:authorize="isAnonymous()" th:href="@{/login}">로그인</a>
                         <a sec:authorize="isAuthenticated()" th:href="@{/user/info}">내정보</a>
-                        <a sec:authorize="isAnonymous()" th:href="@{/user/signup}">회원가입</a>
-                        <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">로그아웃</a>
+                        <a sec:authorize="isAnonymous()" th:href="@{/signup}">회원가입</a>
+                        <a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
                     </div>
                 </div>
 

@@ -18,23 +18,23 @@ public class BoardController {
     }
 
     // 회원가입 페이지
-    @GetMapping("/user/signup")
+    @GetMapping("/signup")
     public String dispSignup() {
         return "user/signup";
     }
 
     // 회원가입 처리
-    @PostMapping("/user/signup")
+    @PostMapping("/signup")
     public String execSignup(UserDto userDto) {
         userService.joinUser(userDto);
 
-        return "redirect:/user/login";
+        return "user/login";
     }
 
     // 로그인 페이지
     @GetMapping("/user/login")
     public String dispLogin() {
-        return "/login";
+        return "user/login";
     }
 
     // 로그인 결과 페이지

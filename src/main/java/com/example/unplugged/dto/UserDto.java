@@ -22,6 +22,7 @@ public class UserDto {
     private String gender;
     private String state;
     private LocalDateTime Date;
+    private LocalDateTime createdDate;
 
     public UserEntity toEntity(){
         return UserEntity.builder()

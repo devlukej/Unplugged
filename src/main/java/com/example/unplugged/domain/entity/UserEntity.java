@@ -51,7 +51,7 @@ public class UserEntity {
  //   private String profile;
 
 //    @Column(length = 100, nullable = false)
- //   private String birthday;
+//    private String birthday;
 
     @Column(length = 2, nullable = false)
     private String state;
