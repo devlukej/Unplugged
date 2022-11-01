@@ -68,20 +68,24 @@ function signUpCheck() {
     // 비밀번호 확인
     if (pw !== checkpw) {
         document.getElementById("pwError").innerHTML = ""
+        document.getElementById("checkpwError").style.color = "rgba(248,42,42,0.7)";
         document.getElementById("checkpwError").innerHTML = "비밀번호가 동일하지 않습니다."
         check = false
     } else {
+        document.getElementById("checkpwError").style.color = "rgba(16,201,197,0.7)";
         document.getElementById("pwError").innerHTML = ""
-        document.getElementById("checkpwError").innerHTML = ""
+        document.getElementById("checkpwError").innerHTML = "비밀번호 일치함"
     }
 
     if (pw === "") {
+        document.getElementById("checkpwError").style.color = "rgba(248,42,42,0.7)";
         document.getElementById("pwError").innerHTML = "비밀번호를 입력해주세요."
         check = false
     } else {
         //document.getElementById("passwordError").innerHTML=""
     }
     if (checkpw === "") {
+        document.getElementById("checkpwError").style.color = "rgba(248,42,42,0.7)";
         document.getElementById("checkpwError").innerHTML = "비밀번호를 다시 입력해주세요."
         check = false
     } else {

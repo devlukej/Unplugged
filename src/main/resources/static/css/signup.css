@@ -204,9 +204,20 @@ f {
     float: right;
     font-size: 1px;
     height: 25px;
-    color: red;
-    font-weight: 700;
+    color: rgba(248,42,42,0.7);
+    font-weight: 800;
 }
+
+.pwerror {
+    padding: 5px 0;
+    width: 70%;
+    float: right;
+    font-size: 1px;
+    height: 25px;
+    color: rgba(248,42,42,0.7);
+    font-weight: 800;
+}
+
 
 body {
     width: 100%;

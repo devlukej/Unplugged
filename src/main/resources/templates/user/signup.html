@@ -212,13 +212,13 @@
         <s>*</s>
         <input class="textarea" id="pw" type="password" placeholder="비밀번호 입력">
     </div>
-    <div id="pwError" class="error"></div>
+    <div id="pwError" class="pwerror"></div>
     <div class="checkpw">
         <d>재확인</d>
         <s>*</s>
         <input class="textarea" id="checkpw" type="password" placeholder="비밀번호 재입력">
     </div>
-    <div id="checkpwError" class="error"></div>
+    <div id="checkpwError" class="pwerror"></div>
     <div class="birthday">
         <d>생년월일</d>
         <s>*</s>
@@ -242,7 +242,7 @@
     <div id="phoneError" class="error"></div>
     <div class="studentNum">
         <d>학번</d>
-        <s>*</s><input class="textarea" id="studentNum" type="text" placeholder="학번 입력"
+        <s>*</s><input class="textarea" id="studentNum" type="text" placeholder="학번 입력" maxlength="8"
                        oninput="changeStudentNum()">
     </div>
     <div id="studentNumError" class="error"></div>
@@ -291,6 +291,26 @@
 </div>
 <!--</form>-->
 <script>
+
+
+    //비밀번호 실시간 확인
+    $(function(){
+        $('#pw').keyup(function(){
+            $('#checkpwError').html('');
+        });
+
+        $('#checkpw').keyup(function(){
+
+            if($('#pw').val() != $('#checkpw').val()){
+                $('#checkpwError').html('비밀번호가 동일하지 않습니다.');
+                document.getElementById("checkpwError").style.color = "rgba(248,42,42,0.7)";
+            } else{
+                $('#checkpwError').html('비밀번호 일치함');
+                document.getElementById("checkpwError").style.color = "rgba(16,201,197,0.7)";
+            }
+
+        });
+    });
 
     $("#major").click(function () {
         $(".major-modal").show();
