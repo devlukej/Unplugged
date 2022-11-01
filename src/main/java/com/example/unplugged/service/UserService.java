@@ -32,4 +32,21 @@ public class UserService {
 
         return userRepository.save(userDto.toEntity()).getId();
     }
+
+
+    public UserDetails loadUserById(Long id) throws UsernameNotFoundException {
+        Optional<UserEntity> userEntityWrapper = userRepository.findById(id);
+        UserEntity userEntity = userEntityWrapper.get();
+
+        List<GrantedAuthority> authorities = new ArrayList<>();
+
+        if (("간부").equals(userEntity.getPosition())) {
+            authorities.add(new SimpleGrantedAuthority(Role.MANAGER.getValue()));
+        } else {
+            authorities.add(new SimpleGrantedAuthority(Role.USER.getValue()));
+        }
+
+        //ID를 왜 못 받아오는지
+        return new User(userEntity.getGender(), userEntity.getPw(), authorities);
+    }
 }
