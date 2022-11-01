@@ -21,64 +21,66 @@
     </div>
     <div class="major-select">
         <modal-text>임권택영화예술대학</modal-text>
-        <modal-label><input class="radiobtn" type="radio" name="major">영화과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">뮤지컬과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">연기과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="영화과" onclick="getmajor()">영화과
+        </modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="뮤지컬과" onclick="getmajor()">뮤지컬과
+        </modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="연기과">연기과</modal-label>
         <modal-text>디자인대학</modal-text>
-        <modal-label><input class="radiobtn" type="radio" name="major">디자인학부</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">패션디자인과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">광고홍보학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">건축학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="디자인학부">디자인학부</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="패션디자인과">패션디자인과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="광고홍보학과">광고홍보학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="건축학과">건축학과</modal-label>
         <modal-text>미디어콘텐츠대학</modal-text>
-        <modal-label><input class="radiobtn" type="radio" name="major">방송영상학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">게임학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">영상애니메이션학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">웹툰학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="방송영상학과">방송영상학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="게임학과">게임학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="영상애니메이션학과">영상애니메이션학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="웹툰학과">웹툰학과</modal-label>
         <modal-text>소프트웨어융합대학</modal-text>
-        <modal-label><input class="radiobtn" type="radio" name="major">소프트웨어학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">정보보안학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">인공지능응용학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">컴퓨터공학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">전자공학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">기계공학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">건축공학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">사회환경공학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="소프트웨어학과">소프트웨어학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="정보보안학과">정보보안학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="인공지능응용학과">인공지능응용학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="컴퓨터공학과">컴퓨터공학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="전자공학과">전자공학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="기계공학과">기계공학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="건축공학과">건축공학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="사회환경공학과">사회환경공학과</modal-label>
         <modal-text>글로벌비즈니스대학</modal-text>
-        <modal-label><input class="radiobtn" type="radio" name="major">경영학부</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">국제통상학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">국제물류학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">영어학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">일본어학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">중국어학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">호텔경영학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">관광경영·컨벤션학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="경영학부">경영학부</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="국제통상학과">국제통상학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="국제물류학과">국제물류학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="영어학과">영어학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="일본어학과">일본어학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="중국어학과">중국어학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="호텔경영학과">호텔경영학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="관광경영·컨벤션학과">관광경영·컨벤션학과</modal-label>
         <modal-text>International College</modal-text>
-        <modal-label><input class="radiobtn" type="radio" name="major">캠퍼스아시아학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="캠퍼스아시아학과">캠퍼스아시아학과</modal-label>
         <modal-text>바이오헬스융합대학</modal-text>
-        <modal-label><input class="radiobtn" type="radio" name="major">보건행정학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">임상병리학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">간호학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">치위생학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">방사선학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">작업치료학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">운동처방학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">체육학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">식품영양학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">화장품·신소재학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="보건행정학과">보건행정학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="임상병리학과">임상병리학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="간호학과">간호학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="치위생학과">치위생학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="방사선학과">방사선학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="작업치료학과">작업치료학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="운동처방학과">운동처방학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="체육학과">체육학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="식품영양학과">식품영양학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="화장품·신소재학과">화장품·신소재학과</modal-label>
         <modal-text>사회과학대학</modal-text>
-        <modal-label><input class="radiobtn" type="radio" name="major">사회복지학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">청소년상담심리학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">경찰행정학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="사회복지학과">사회복지학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="청소년상담심리학과">청소년상담심리학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="경찰행정학과">경찰행정학과</modal-label>
         <modal-text>미래커리어대학</modal-text>
-        <modal-label><input class="radiobtn" type="radio" name="major">ICT융합공학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">사회안전학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">사회복지상담학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">시니어운동처방학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">스포츠레저산업학과</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="major">실용콘텐츠창작학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="ICT융합공학과">ICT융합공학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="사회안전학과">사회안전학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="사회복지상담학과">사회복지상담학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="시니어운동처방학과">시니어운동처방학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="스포츠레저산업학과">스포츠레저산업학과</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="major" value="실용콘텐츠창작학과">실용콘텐츠창작학과</modal-label>
     </div>
     <div class="modal-choice">
-        <button class="modal-btn" id="major-btn">선택완료</button>
+        <button class="modal-btn" id="major-btn" onclick="getMajor()">선택완료</button>
     </div>
 </div>
 
@@ -88,59 +90,59 @@
         <div class="modal-title">기수</div>
     </div>
     <div class="year-select">
-        <modal-label><input class="radiobtn" type="radio" name="year">U01</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U02</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U03</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U04</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U05</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U06</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U07</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U08</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U09</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U10</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U11</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U12</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U13</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U14</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U15</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U16</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U17</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U18</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U19</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U20</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U21</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U22</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U23</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U24</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U25</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U26</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U27</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U28</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U29</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U30</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U31</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U32</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U33</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U34</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U35</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U36</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U37</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U38</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U39</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U40</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U41</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U42</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U43</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U44</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U45</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U46</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U47</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U48</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U49</modal-label>
-        <modal-label><input class="radiobtn" type="radio" name="year">U50</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U01">U01</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U02">U02</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U03">U03</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U04">U04</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U05">U05</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U06">U06</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U07">U07</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U08">U08</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U09">U09</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U10">U10</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U11">U11</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U12">U12</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U13">U13</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U14">U14</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U15">U15</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U16">U16</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U17">U17</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U18">U18</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U19">U19</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U20">U20</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U21">U21</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U22">U22</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U23">U23</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U24">U24</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U25">U25</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" VALUE="U26">U26</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U27">U27</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U28">U28</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U29">U29</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U30">U30</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U31">U31</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U32">U32</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U33">U33</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U34">U34</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U35">U35</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U36">U36</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U37">U37</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U38">U38</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U39">U39</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U40">U40</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U41">U41</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U42">U42</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U43">U43</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U44">U44</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U45">U45</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U46">U46</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U47">U47</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U48">U48</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U49">U49</modal-label>
+        <modal-label><input class="radiobtn" type="radio" name="year" value="U50">U50</modal-label>
     </div>
     <div class="modal-choice">
-        <button class="modal-btn" id="year-btn">선택완료</button>
+        <button class="modal-btn" id="year-btn" onclick="getYear()">선택완료</button>
     </div>
 </div>
 
@@ -151,21 +153,18 @@
         <div class="modal-title">기수</div>
     </div>
     <div class="session-select">
-        <modal-cklabel><input class="checkbox" type="checkbox" name="session">보컬</modal-cklabel>
-        <modal-cklabel><input class="checkbox" type="checkbox" name="session">통기타</modal-cklabel>
-        <modal-cklabel><input class="checkbox" type="checkbox" name="session">일렉</modal-cklabel>
-        <modal-cklabel><input class="checkbox" type="checkbox" name="session">베이스</modal-cklabel>
-        <modal-cklabel><input class="checkbox" type="checkbox" name="session">건반</modal-cklabel>
-        <modal-cklabel><input class="checkbox" type="checkbox" name="session">드럼</modal-cklabel>
-        <modal-cklabel><input class="checkbox" type="checkbox" name="session">없음</modal-cklabel>
+        <modal-cklabel><input class="checkbox" type="checkbox" name="session" value="보컬">보컬</modal-cklabel>
+        <modal-cklabel><input class="checkbox" type="checkbox" name="session" value="통기타">통기타</modal-cklabel>
+        <modal-cklabel><input class="checkbox" type="checkbox" name="session" value="일렉">일렉</modal-cklabel>
+        <modal-cklabel><input class="checkbox" type="checkbox" name="session" value="베이스">베이스</modal-cklabel>
+        <modal-cklabel><input class="checkbox" type="checkbox" name="session" value="건반">건반</modal-cklabel>
+        <modal-cklabel><input class="checkbox" type="checkbox" name="session" value="드럼">드럼</modal-cklabel>
+        <modal-cklabel><input class="blockbox" type="checkbox" name="session" value="없음">없음</modal-cklabel>
     </div>
     <div class="modal-choice">
-        <button class="modal-btn" id="session-btn">선택완료</button>
+        <button class="modal-btn" id="session-btn" onclick="getSession()">선택완료</button>
     </div>
 </div>
-
-<!-- 직급 모달 -->
-
 
 <div class="areabox">
 
@@ -267,40 +266,41 @@
         <d>연락처</d>
         <s>*</s>
         <f>
-            <input class="phonebox" id="phone1" type="text" maxlength="3" oninput="changePhone1()">
+            <input class="phonebox" id="phone1" type="text" maxlength="3" oninput="changePhone1()" placeholder="000">
             -
-            <input class="phonebox" id="phone2" type="text" maxlength="4" oninput="changePhone2()">
+            <input class="phonebox" id="phone2" type="text" maxlength="4" oninput="changePhone2()" placeholder="0000">
             -
-            <input class="phonebox" id="phone3" type="text" maxlength="4" oninput="changePhone3()">
+            <input class="phonebox" id="phone3" type="text" maxlength="4" oninput="changePhone3()" placeholder="0000">
         </f>
     </div>
     <div id="phoneError" class="error"></div>
     <div class="studentNum">
         <d>학번</d>
-        <s>*</s><input class="textarea" id="studentNum" type="text" placeholder="학번 입력">
+        <s>*</s><input class="textarea" id="studentNum" type="text" placeholder="학번 입력" oninput="changeStudentNum()">
     </div>
     <div id="studentNumError" class="error"></div>
     <div class="major">
         <d>학과</d>
         <s>*</s>
-        <input class="textarea" id="major" type="text" placeholder="학과 선택">
+        <input class="textarea" id="major" type="text" placeholder="학과 선택" readonly>
+        <div id="result"></div>
     </div>
     <div id="majorError" class="error"></div>
     <div class="year">
         <d>기수</d>
         <s>*</s>
-        <input class="textarea" id="year" type="text" placeholder="기수 선택">
+        <input class="textarea" id="year" type="text" placeholder="기수 선택" readonly>
     </div>
     <div id="yearError" class="error"></div>
 
     <div class="session">
         <d>세션</d>
         <s>*</s>
-        <input class="textarea" id="session" type="text" placeholder="세션 선택">
+        <input class="textarea" id="session" type="text" placeholder="세션 선택" readonly>
     </div>
     <div id="sessionError" class="error"></div>
 
-    <div class="position">
+    <div class="position" id="position">
         <d>직급</d>
         <s>*</s>
         <label class="rdobtn"><input id="position_manager" type="radio" name="position"><span>간부</span></label>
@@ -323,6 +323,7 @@
     <button class="btn" id="signUpButton" onclick="signUpCheck()">가입하기</button>
 </div>
 <script>
+
     $("#major").click(function () {
         $(".major-modal").show();
         $(".modal2").show();
@@ -351,6 +352,25 @@
     $(".modal2").click(function () {
         $(".session-modal").hide();
         $(".modal2").hide();
+    });
+
+    $(document).ready(function(){
+
+        $('.blockbox').click(function () { //전체선택 체크
+            var chk = $(this).is(":checked"); //전체선택의 체크 여부 확인
+            if(chk){ //전체선택이 체크 되었다면
+                $('.checkbox').each(function(){
+                    var disabled = $(this).prop("disabled"); //비활성화 여부 체크
+                    if(!disabled){ //비활성화가 아니라면
+                        $(this).prop('disabled', true); //비활성화 실행
+                        $(this).prop('checked', false);
+                    }
+                });
+            }else{//전체선택이 체크되지 않았다면
+                $('.checkbox').prop('disabled', false); //전체 체크 풀기 (체크 푸는건 모두 해도 상관 없음)
+            }
+        });
+
     });
 
 </script>

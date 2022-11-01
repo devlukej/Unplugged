@@ -1,3 +1,29 @@
+// 휴대폰 번호 입력 부분
+function changePhone1(){
+    const phone1 = document.getElementById("phone1").value // 010
+    if(phone1.length === 3){
+        document.getElementById("phone2").focus();
+    }
+}
+function changePhone2(){
+    const phone2 = document.getElementById("phone2").value // 0000
+    if(phone2.length === 4){
+        document.getElementById("phone3").focus();
+    }
+}
+function changePhone3(){
+    const phone3 = document.getElementById("phone3").value // 0000
+    if(phone3.length === 4){
+        document.getElementById("studentNum").focus();
+    }
+}
+function changeStudentNum(){
+    const studentNum = document.getElementById("studentNum").value // 0000
+    if(studentNum.length === 8){
+        document.getElementById("major").focus();
+    }
+}
+
 function signUpCheck() {
 
     let name = document.getElementById("name").value
@@ -162,6 +188,57 @@ function signUpCheck() {
     }
 }
 
-document.getElementsByTagName('major')[0].addEventListener('click', function () {
-    document.getElementById('areabox').style.display = 'block';
-});
+function getMajor()  {
+    // 선택된 목록 가져오기
+    const query = 'input[name="major"]:checked';
+    const selectedEls =
+        document.querySelectorAll(query);
+
+    // 선택된 목록에서 value 찾기
+    let result = '';
+    selectedEls.forEach((el) => {
+        result += el.value + ' ';
+    });
+
+    document.getElementById("year").focus();
+    $("#major").val(result)
+    $(".major-modal").hide();
+    $(".modal2").hide();
+
+}
+
+function getYear()  {
+    // 선택된 목록 가져오기
+    const query = 'input[name="year"]:checked';
+    const selectedEls =
+        document.querySelectorAll(query);
+
+    // 선택된 목록에서 value 찾기
+    let result = '';
+    selectedEls.forEach((el) => {
+        result += el.value + ' ';
+    });
+    document.getElementById("session").focus();
+    $("#year").val(result)
+    $(".year-modal").hide();
+    $(".modal2").hide();
+
+}
+
+function getSession()  {
+    // 선택된 목록 가져오기
+    const query = 'input[name="session"]:checked';
+    const selectedEls =
+        document.querySelectorAll(query);
+
+    // 선택된 목록에서 value 찾기
+    let result = '';
+    selectedEls.forEach((el) => {
+        result += el.value + ' ';
+    });
+
+    $("#session").val(result)
+    $(".session-modal").hide();
+    $(".modal2").hide();
+
+}

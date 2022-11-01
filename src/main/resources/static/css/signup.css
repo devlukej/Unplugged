@@ -237,24 +237,24 @@ body {
     position: relative;
 }
 
-.checkbox:checked {
-    border: 6px solid #D6E4FF;
-}
+/*.checkbox:checked {*/
+/*    border: 6px solid #D6E4FF;*/
+/*}*/
 
-.checkbox {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+/*.checkbox {*/
+/*    -webkit-appearance: none;*/
+/*    -moz-appearance: none;*/
+/*    appearance: none;*/
 
-    width: 16px;
-    height: 16px;
+/*    width: 16px;*/
+/*    height: 16px;*/
 
-    border: 2px solid #999;
-    transition: 0.2s all linear;
-    margin-right: 5px;
+/*    border: 2px solid #999;*/
+/*    transition: 0.2s all linear;*/
+/*    margin-right: 5px;*/
 
-    position: relative;
-}
+/*    position: relative;*/
+/*}*/
 
 .modal2 {
     position: fixed;
