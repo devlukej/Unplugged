@@ -193,7 +193,8 @@
     </div>
 </div>
 
-<!--<form th:action="@{/user/signup}" method="post">-->
+<form th:action="@{/signup}" method="post">
+
 <div class="areabox">
     <div class="name">
         <d>이름</d>
@@ -201,30 +202,35 @@
         <input class="textarea" id="name" type="text" placeholder="이름 입력">
     </div>
     <div id="nameError" class="error"></div>
+
     <div class="id">
         <d>아이디</d>
         <s>*</s>
         <input class="textarea" id="id" type="text" placeholder="아이디 입력">
     </div>
     <div id="idError" class="error"></div>
+
     <div class="pw">
         <d>비밀번호</d>
         <s>*</s>
         <input class="textarea" id="pw" type="password" placeholder="비밀번호 입력">
     </div>
     <div id="pwError" class="pwerror"></div>
+
     <div class="checkpw">
         <d>재확인</d>
         <s>*</s>
         <input class="textarea" id="checkpw" type="password" placeholder="비밀번호 재입력">
     </div>
     <div id="checkpwError" class="pwerror"></div>
+
     <div class="birthday">
         <d>생년월일</d>
         <s>*</s>
         <input class="textarea" id="birthday" type="date" placeholder="생년월일 입력">
     </div>
     <div id="birthdayError" class="error"></div>
+
     <div class="phone">
         <d>연락처</d>
         <s>*</s>
@@ -240,12 +246,14 @@
         </f>
     </div>
     <div id="phoneError" class="error"></div>
+
     <div class="studentNum">
         <d>학번</d>
         <s>*</s><input class="textarea" id="studentNum" type="text" placeholder="학번 입력" maxlength="8"
                        oninput="changeStudentNum()">
     </div>
     <div id="studentNumError" class="error"></div>
+
     <div class="major">
         <d>학과</d>
         <s>*</s>
@@ -253,6 +261,7 @@
         <div id="result"></div>
     </div>
     <div id="majorError" class="error"></div>
+
     <div class="year">
         <d>기수</d>
         <s>*</s>
@@ -282,14 +291,19 @@
         <label class="rdobtn"><input id="gender_woman" type="radio" name="gender"><span>여자</span></label>
     </div>
     <div id="genderError" class="error"></div>
+
     <div class="agree">
         약관동의
     </div>
 </div>
+
 <div class="signup">
     <button class="btn" id="signUpButton" onclick="signUpCheck()">가입하기</button>
 </div>
-<!--</form>-->
+
+</form>
+
+
 <script>
 
 

@@ -28,7 +28,7 @@ public class BoardController {
     public String execSignup(UserDto userDto) {
         userService.joinUser(userDto);
 
-        return "user/login";
+        return "redirect:/login";
     }
 
     // 로그인 페이지

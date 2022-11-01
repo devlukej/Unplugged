@@ -10,7 +10,9 @@ import java.time.LocalDateTime;
 @ToString
 @NoArgsConstructor
 public class UserDto {
-    private Long id;
+
+    private Long num;
+    private String id;
     private String pw;
     private String name;
     private String phone;
@@ -28,6 +30,7 @@ public class UserDto {
 
     public UserEntity toEntity(){
         return UserEntity.builder()
+                .num(num)
                 .id(id)
                 .pw(pw)
                 .name(name)
@@ -43,7 +46,8 @@ public class UserDto {
     }
 
     @Builder
-    public UserDto(Long id , String pw , String name , String phone , String studentNum , String major , String year , String session , String position , String gender , String state) {
+    public UserDto(Long num , String id , String pw , String name , String phone , String studentNum , String major , String year , String session , String position , String gender , String state) {
+        this.num = num;
         this.id = id;
         this.pw = pw;
         this.name = name;

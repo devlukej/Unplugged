@@ -21,7 +21,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class UserService {
+public class UserService implements UserDetailsService {
     private UserRepository userRepository;
 
     @Transactional
@@ -30,12 +30,11 @@ public class UserService {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         userDto.setPw(passwordEncoder.encode(userDto.getPw()));
 
-        return userRepository.save(userDto.toEntity()).getId();
+        return userRepository.save(userDto.toEntity()).getNum();
     }
 
-
-    public UserDetails loadUserById(Long id) throws UsernameNotFoundException {
-        Optional<UserEntity> userEntityWrapper = userRepository.findById(id);
+    public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
+        Optional<UserEntity> userEntityWrapper = userRepository.findById(userId);
         UserEntity userEntity = userEntityWrapper.get();
 
         List<GrantedAuthority> authorities = new ArrayList<>();
@@ -46,7 +45,6 @@ public class UserService {
             authorities.add(new SimpleGrantedAuthority(Role.USER.getValue()));
         }
 
-        //ID를 왜 못 받아오는지
-        return new User(userEntity.getGender(), userEntity.getPw(), authorities);
+        return new User(userEntity.getId(), userEntity.getPw(), authorities);
     }
 }

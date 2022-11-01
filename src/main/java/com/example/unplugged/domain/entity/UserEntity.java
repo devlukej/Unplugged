@@ -14,8 +14,11 @@ import javax.persistence.*;
 public class UserEntity {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long num;
+
     @Column(length = 50, nullable = false)
-    private Long id;
+    private String id;
 
     @Column(length = 50, nullable = false)
     private String pw;
@@ -60,7 +63,8 @@ public class UserEntity {
 
 
     @Builder
-    public UserEntity(Long id , String pw , String name , String phone , String studentNum , String major , String year , String session , String position , String gender , String state) {
+    public UserEntity(Long num, String id , String pw , String name , String phone , String studentNum , String major , String year , String session , String position , String gender , String state) {
+        this.num = num;
         this.id = id;
         this.pw = pw;
         this.name = name;
