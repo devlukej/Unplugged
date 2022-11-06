@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Main</title>
-    <link rel="stylesheet" th:href="@{/css/index.css}">
-    <link rel="stylesheet" th:href="@{/css/header.css}">
     <link rel="stylesheet" th:href="@{/css/main.css}">
 </head>
 <body>
@@ -16,14 +14,14 @@
         <dl class="notice">
             <dt style="font-weight: bold">
                 <div>공지사항</div>
-                <a class="plus" href="#">+ 더보기</a>
+                <a class="plus" th:href="@{/notice}">+ 더보기</a>
             </dt>
             <ul>
-                <li><a href="#"><span>1</span> - now having a board</a></li>
-                <li><a href="#"><span>2</span> - now having a board</a></li>
-                <li><a href="#"><span>3</span> - now having a board</a></li>
-                <li><a href="#"><span>4</span> - now having a board</a></li>
-                <li><a href="#"><span>5</span> - now having a board</a></li>
+                <li><a href="#" class="main_text"><span>1</span> - now having a board</a></li>
+                <li><a href="#" class="main_text"><span>2</span> - now having a board</a></li>
+                <li><a href="#" class="main_text"><span>3</span> - now having a board</a></li>
+                <li><a href="#" class="main_text"><span>4</span> - now having a board</a></li>
+                <li><a href="#" class="main_text"><span>5</span> - now having a board</a></li>
             </ul>
         </dl>
     </div>
@@ -32,13 +30,13 @@
             <ul>
                 <dt style="font-weight: bold">
                     <div>행사일정</div>
-                    <a class="plus" href="#">+ 더보기</a>
+                    <a class="plus" th:href="@{/event}">+ 더보기</a>
                 </dt>
-                <li><a href="#"><span>1</span> - now having a board</a></li>
-                <li><a href="#"><span>2</span> - now having a board</a></li>
-                <li><a href="#"><span>3</span> - now having a board</a></li>
-                <li><a href="#"><span>4</span> - now having a board</a></li>
-                <li><a href="#"><span>5</span> - now having a board</a></li>
+                <li><a href="#" class="main_text"><span>1</span> - now having a board</a></li>
+                <li><a href="#" class="main_text"><span>2</span> - now having a board</a></li>
+                <li><a href="#" class="main_text"><span>3</span> - now having a board</a></li>
+                <li><a href="#" class="main_text"><span>4</span> - now having a board</a></li>
+                <li><a href="#" class="main_text"><span>5</span> - now having a board</a></li>
             </ul>
         </dl>
     </div>

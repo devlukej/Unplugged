@@ -1,42 +1,39 @@
 // 휴대폰 번호 입력 부분
-function changePhone1(){
-    const phone1 = document.getElementById("phone1").value // 010
-    if(phone1.length === 3){
-        document.getElementById("phone2").focus();
-    }
-}
-function changePhone2(){
-    const phone2 = document.getElementById("phone2").value // 0000
-    if(phone2.length === 4){
-        document.getElementById("phone3").focus();
-    }
-}
-function changePhone3(){
-    const phone3 = document.getElementById("phone3").value // 0000
-    if(phone3.length === 4){
+function changePhone() {
+    const phone = document.getElementById("phone").value
+    if (phone.length === 11) {
         document.getElementById("studentNum").focus();
     }
 }
-function changeStudentNum(){
-    const studentNum = document.getElementById("studentNum").value // 0000
-    if(studentNum.length === 8){
+
+function changeStudentNum() {
+    const studentNum = document.getElementById("studentNum").value
+    if (studentNum.length === 8) {
         document.getElementById("major").focus();
+    }
+}
+
+
+function changeBirthday() {
+    const birthday = document.getElementById("birthday").value
+    if (birthday.length === 8) {
+        document.getElementById("phone").focus();
     }
 }
 
 function signUpCheck() {
 
+    // let pwdCheck;
+    // pwdCheck = /^(?=.*\d)(?=.*[a-z])(?=\\S+$).{8,20}$/;
     let name = document.getElementById("name").value
     let id = document.getElementById("id").value
     let pw = document.getElementById("pw").value
     let checkpw = document.getElementById("checkpw").value
-    let birthday = document.getElementById("birthday").value
     let major = document.getElementById("major").value
     let session = document.getElementById("session").value
     let year = document.getElementById("year").value
-    let phone1 = document.getElementById("phone1").value
-    let phone2 = document.getElementById("phone2").value
-    let phone3 = document.getElementById("phone3").value
+    let phone = document.getElementById("phone").value
+    let birthday = document.getElementById("birthday").value
 
     let studentNum = document.getElementById("studentNum").value
 
@@ -45,204 +42,150 @@ function signUpCheck() {
     let position_user = document.getElementById("position_user").checked
     let gender_man = document.getElementById("gender_man").checked
     let gender_woman = document.getElementById("gender_woman").checked
-    let check = true;
 
-    if (name === "" || id ==="" || pw === "" || checkpw ==="" || phone1 === "" || phone2 === "" || phone3 === "" ||
-        birthday === "" || studentNum  === "" || major === "" || year === "" || session === "" || !position_manager && !position_user
-        || !gender_man && !gender_woman) {
-        // 이름 확인
-        if (name === "") {
-            document.getElementById("nameError").innerHTML = "이름이 올바르지 않습니다."
-            check = false
-        } else {
-            document.getElementById("nameError").innerHTML = ""
-        }
+    let name_error = document.getElementById("nameError").value
+    let id_error = document.getElementById("idError").value
+    let pw_error = document.getElementById("pwError").value
+    let checkpw_error = document.getElementById("checkpwError").value
+    let birthday_error = document.getElementById("birthdayError").value
+    let phone_error = document.getElementById("phoneError").value
+    let studentNum_error = document.getElementById("studentNumError").value
+    let major_error = document.getElementById("majorError").value
+    let year_error = document.getElementById("yearError").value
+    let session_error = document.getElementById("sessionError").value
+    let position_error = document.getElementById("positionError").value
+    let gender_error = document.getElementById("genderError").value
 
-        // 아이디 확인
-        if (id === "") {
-            document.getElementById("idError").innerHTML = "아이디가 올바르지 않습니다."
-            check = false
-        } else {
-            document.getElementById("idError").innerHTML = ""
-        }
+    let pwd1 = document.querySelector('#pw');
+    let pwd2 = document.querySelector('#checkpw');
+    let signup_form = document.querySelector('#form');
 
 
-        // 비밀번호 확인
-        if (pw !== checkpw) {
-            document.getElementById("pwError").innerHTML = ""
-            document.getElementById("checkpwError").style.color = "rgba(248,42,42,0.7)";
-            document.getElementById("checkpwError").innerHTML = "비밀번호가 동일하지 않습니다."
-            check = false
-        } else {
-            document.getElementById("checkpwError").style.color = "rgba(16,201,197,0.7)";
-            document.getElementById("pwError").innerHTML = ""
-            document.getElementById("checkpwError").innerHTML = "비밀번호 일치함"
-        }
+    if (name_error == "" && id_error == "" && birthday_error == "" &&
+        phone_error == "" && studentNum_error == "" && major_error == "" && year_error == "" && session_error == "" &&
+        position_error == "" && gender_error == "" && pw_error == "" && checkpw_error == "비밀번호 일치함" && pwd1.value == pwd2.value) {
+        signup_form.submit();
+    }
 
-        if (pw === "") {
-            document.getElementById("checkpwError").style.color = "rgba(248,42,42,0.7)";
-            document.getElementById("pwError").innerHTML = "비밀번호를 입력해주세요."
-            check = false
-        } else {
-            //document.getElementById("passwordError").innerHTML=""
-        }
-        if (checkpw === "") {
-            document.getElementById("checkpwError").style.color = "rgba(248,42,42,0.7)";
-            document.getElementById("checkpwError").innerHTML = "비밀번호를 다시 입력해주세요."
-            check = false
-        } else {
-            //document.getElementById("passwordCheckError").innerHTML=""
-        }
+    // 이름 확인
+    if (name == "") {
+        document.getElementById("nameError").innerHTML = "이름이 올바르지 않습니다."
+        document.getElementById("name").focus();
+        return false
+    } else {
+        document.getElementById("nameError").innerHTML = ""
+    }
 
+    // 아이디 확인
+    if (id == "") {
+        document.getElementById("idError").innerHTML = "아이디가 올바르지 않습니다."
+        document.getElementById("id").focus();
+        return false
+    } else {
+        document.getElementById("idError").innerHTML = ""
+    }
 
-        // 연락처 확인
-        if (phone1 === "" || phone1.length !== 3) {
-            document.getElementById("phoneError").innerHTML = "연락처 확인"
-            check = false
-        } else {
-            document.getElementById("phoneError").innerHTML = ""
-        }
-        if (phone2 === "" || phone2.length !== 4) {
-            document.getElementById("phoneError").innerHTML = "연락처 확인"
-            check = false
-        } else {
-            document.getElementById("phoneError").innerHTML = ""
-        }
-        if (phone3 === "" || phone3.length !== 4) {
-            document.getElementById("phoneError").innerHTML = "연락처 확인"
-            check = false
-        } else {
-            document.getElementById("phoneError").innerHTML = ""
-        }
+    if (checkpw !== pw || checkpw == "" || pw == "") {
+        document.getElementById("checkpwError").style.color = "rgba(248,42,42,0.7)";
+        document.getElementById("pwError").innerHTML = "비밀번호를 다시 입력해주세요."
+        document.getElementById("checkpwError").innerHTML = ""
+        document.getElementById("pw").innerText = ""
+        document.getElementById("checkpw").innerText = ""
+        document.getElementById("pw").focus();
+        return false
+    } else {
+        document.getElementById("checkpwError").style.color = "rgba(16,201,197,0.7)";
+        document.getElementById("checkpwError").innerHTML = "비밀번호 일치함"
+        document.getElementById("pwError").innerHTML = ""
+    }
 
-        // 학번입력 확인
-        if (studentNum === "" || studentNum.length !== 8) {
-            document.getElementById("studentNumError").innerHTML = "학번 입력"
-            check = false
-        } else {
-            document.getElementById("studentNumError").innerHTML = ""
-        }
+    // if (!pwdCheck.test(pw.value) || pw == "") {
+    //     document.getElementById("checkpwError").style.color = "rgba(248,42,42,0.7)";
+    //     document.getElementById("pwError").innerHTML = "영문+숫자+특수문자 하나이상 8~20자리 사용해야합니다."
+    //     document.getElementById("checkpwError").innerText = ""
+    //     document.getElementById("pw").innerText = ""
+    //     document.getElementById("checkpw").innerText = ""
+    //     document.getElementById("pw").focus();
+    //     return false
+    // } else {
+    //     document.getElementById("pwError").innerHTML = ""
+    //     document.getElementById("checkpw").innerText = ""
+    // }
 
 
-        // 학과선택 확인
-        if (major === "") {
-            document.getElementById("majorError").innerHTML = "학과 선택"
-            check = false
-        } else {
-            document.getElementById("majorError").innerHTML = ""
-        }
+    // 연락처 확인
+    if (phone == "" || phone.length !== 11) {
+        document.getElementById("phoneError").innerHTML = "연락처 확인"
+        document.getElementById("phone").focus();
+        return false
+    } else {
+        document.getElementById("phoneError").innerHTML = ""
+    }
 
-        // 기수선택 확인
-        if (year === "") {
-            document.getElementById("yearError").innerHTML = "기수 선택"
-            check = false
-        } else {
-            document.getElementById("yearError").innerHTML = ""
-        }
-
-        // 세션선택 확인
-        if (session === "") {
-            document.getElementById("sessionError").innerHTML = "세션 선택"
-            check = false
-        } else {
-            document.getElementById("sessionError").innerHTML = ""
-        }
-
-        // 생년월일 확인
-        if (birthday === "") {
-            document.getElementById("birthdayError").innerHTML = "생년월일 확인"
-            check = false
-        } else {
-            document.getElementById("birthdayError").innerHTML = ""
-        }
-
-        // 직급확인
-        if (!position_manager && !position_user) {
-            document.getElementById("positionError").innerHTML = "직급 선택"
-            check = false
-        } else {
-            document.getElementById("positionError").innerHTML = ""
-        }
+    // 학번입력 확인
+    if (studentNum == "" || studentNum.length !== 8) {
+        document.getElementById("studentNumError").innerHTML = "학번 입력"
+        document.getElementById("studentNum").focus();
+        return false
+    } else {
+        document.getElementById("studentNumError").innerHTML = ""
+    }
 
 
-        // 성별체크확인
-        if (!gender_man && !gender_woman) {
-            document.getElementById("genderError").innerHTML = "성별 선택"
-            check = false
-        } else {
-            document.getElementById("genderError").innerHTML = ""
-        }
+    // 학과선택 확인
+    if (major == "") {
+        document.getElementById("majorError").innerHTML = "학과 선택"
+        document.getElementById("major").focus();
+        return false
+    } else {
+        document.getElementById("majorError").innerHTML = ""
+    }
 
-        if (check) {
-            document.getElementById("nameError").innerHTML = ""
-            document.getElementById("idError").innerHTML = ""
-            document.getElementById("pwError").innerHTML = ""
-            document.getElementById("checkpwError").innerHTML = ""
-            document.getElementById("phoneError").innerHTML = ""
-            document.getElementById("studentNumError").innerHTML = ""
-            document.getElementById("majorError").innerHTML = ""
-            document.getElementById("yearError").innerHTML = ""
-            document.getElementById("sessionError").innerHTML = ""
-            document.getElementById("positionError").innerHTML = ""
-            document.getElementById("genderError").innerHTML = ""
-            document.getElementById("birthdayError").innerHTML = ""
+    // 기수선택 확인
+    if (year == "") {
+        document.getElementById("yearError").innerHTML = "기수 선택"
+        document.getElementById("years").focus();
+        return false
+    } else {
+        document.getElementById("yearError").innerHTML = ""
+    }
 
-            }
-        } else {
-    };
-}
+    // 세션선택 확인
+    if (session == "") {
+        document.getElementById("sessionError").innerHTML = "세션 선택"
+        document.getElementById("session").focus();
+        return false
+    } else {
+        document.getElementById("sessionError").innerHTML = ""
+    }
 
-function getMajor()  {
-    // 선택된 목록 가져오기
-    const query = 'input[name="major"]:checked';
-    const selectedEls =
-        document.querySelectorAll(query);
+    // 생년월일 확인
+    if (birthday == "" || birthday.length !== 8) {
+        document.getElementById("birthdayError").innerHTML = "생년월일 확인"
+        document.getElementById("birthday").focus();
+        return false
+    } else {
+        document.getElementById("birthdayError").innerHTML = ""
+    }
 
-    // 선택된 목록에서 value 찾기
-    let result = '';
-    selectedEls.forEach((el) => {
-        result += el.value + ' ';
-    });
 
-    document.getElementById("year").focus();
-    $("#major").val(result)
-    $(".major-modal").hide();
-    $(".modal2").hide();
+    // 직급확인
+    if (!position_manager && !position_user) {
+        document.getElementById("positionError").innerHTML = "직급 선택"
+        return false
+    } else {
+        document.getElementById("positionError").innerHTML = ""
+    }
 
-}
 
-function getYear()  {
-    // 선택된 목록 가져오기
-    const query = 'input[name="year"]:checked';
-    const selectedEls =
-        document.querySelectorAll(query);
+    // 성별체크확인
+    if (!gender_man && !gender_woman) {
+        document.getElementById("genderError").innerHTML = "성별 선택"
+        return false
+    } else {
+        document.getElementById("genderError").innerHTML = ""
+    }
 
-    // 선택된 목록에서 value 찾기
-    let result = '';
-    selectedEls.forEach((el) => {
-        result += el.value + ' ';
-    });
-    document.getElementById("session").focus();
-    $("#year").val(result)
-    $(".year-modal").hide();
-    $(".modal2").hide();
-
-}
-
-function getSession()  {
-    // 선택된 목록 가져오기
-    const query = 'input[name="session"]:checked';
-    const selectedEls =
-        document.querySelectorAll(query);
-
-    // 선택된 목록에서 value 찾기
-    let result = '';
-    selectedEls.forEach((el) => {
-        result += el.value + ' ';
-    });
-
-    $("#session").val(result)
-    $(".session-modal").hide();
-    $(".modal2").hide();
+    signup_form.submit();
 
 }

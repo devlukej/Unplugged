@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Main</title>
-    <link rel="stylesheet" th:href="@{/css/index.css}">
-    <link rel="stylesheet" th:href="@{/css/header.css}">
     <link rel="stylesheet" th:href="@{/css/signup.css}">
     <script src="/js/signup.js"></script>
+    <script src="../../static/js/signup.js"></script>
 </head>
 <body>
-<!--<form id="id_form_signup" th:action="@{/signup}" method="post">-->
 
     <!-- HEADER -->
     <div th:insert="common/header.html" class="header"></div>
@@ -125,7 +123,7 @@
             </modal-label>
         </div>
         <div class="modal-choice">
-            <a class="modal-btn" id="major-btn" href="javascript:getMajor()" >선택완료</a>
+            <button class="modal-btn" id="major-btn" onclick="getMajor()">선택완료</button>
         </div>
     </div>
 
@@ -187,7 +185,7 @@
             <modal-label><label><input class="radiobtn" type="radio" name="year" value="U50">U50</label></modal-label>
         </div>
         <div class="modal-choice">
-            <a class="modal-btn" id="year-btn" href="javascript:getYear()">선택완료</a>
+            <button class="modal-btn" id="year-btn" onclick="getYear()">선택완료</button>
         </div>
     </div>
 
@@ -214,105 +212,101 @@
             </modal-cklabel>
         </div>
         <div class="modal-choice">
-            <a class="modal-btn" id="session-btn" href="javascript:getSession()">선택완료</a>
+            <button class="modal-btn" id="session-btn" onclick="getSession()">선택완료</button>
         </div>
     </div>
 
+    <form id="form" th:action="@{/signup}" method="post" modelAttribute="userDto">
     <div class="body">
-
         <div class="areabox">
             <div class="name">
                 <d>이름</d>
                 <s>*</s>
-                <input class="textarea" id="name" type="text" placeholder="이름 입력">
+                <input class="textarea" id="name" name="name" type="text" placeholder="이름 입력" th:value="조찬호">
             </div>
             <div id="nameError" class="error"></div>
 
             <div class="id">
                 <d>아이디</d>
                 <s>*</s>
-                <input class="textarea" id="id" type="text" placeholder="아이디 입력">
+                <input class="textarea" id="id" name="id" type="text" placeholder="아이디 입력" th:value="admin">
             </div>
             <div id="idError" class="error"></div>
 
             <div class="pw">
                 <d>비밀번호</d>
                 <s>*</s>
-                <input class="textarea" id="pw" type="password" placeholder="비밀번호 입력">
+                <input class="textarea" id="pw" name="pw" type="password" placeholder="비밀번호 입력">
             </div>
             <div id="pwError" class="pwerror"></div>
 
             <div class="checkpw">
                 <d>재확인</d>
                 <s>*</s>
-                <input class="textarea" id="checkpw" type="password" placeholder="비밀번호 재입력">
+                <input class="textarea" id="checkpw" name="checkpw" type="password" placeholder="비밀번호 재입력">
             </div>
             <div id="checkpwError" class="pwerror"></div>
 
             <div class="birthday">
                 <d>생년월일</d>
                 <s>*</s>
-                <input class="textarea" id="birthday" type="date" placeholder="생년월일 입력">
+                    <input class="textarea" id="birthday" name="birthday" type="text" maxlength="8" oninput="changeBirthday()"
+                           th:value="19990226" placeholder="yyyymmdd">
             </div>
             <div id="birthdayError" class="error"></div>
 
             <div class="phone">
                 <d>연락처</d>
                 <s>*</s>
-                <f>
-                    <input class="phonebox" id="phone1" type="text" maxlength="3" oninput="changePhone1()"
-                           placeholder="000">
-                    -
-                    <input class="phonebox" id="phone2" type="text" maxlength="4" oninput="changePhone2()"
-                           placeholder="0000">
-                    -
-                    <input class="phonebox" id="phone3" type="text" maxlength="4" oninput="changePhone3()"
-                           placeholder="0000">
-                </f>
+                    <input class="textarea" id="phone" name="phone" type="text" maxlength="11" oninput="changePhone()"
+                           placeholder="-제외하고 입력" th:value="01045427544">
             </div>
             <div id="phoneError" class="error"></div>
 
             <div class="studentNum">
                 <d>학번</d>
-                <s>*</s><input class="textarea" id="studentNum" type="text" placeholder="학번 입력" maxlength="8"
-                               oninput="changeStudentNum()">
+                <s>*</s><input class="textarea" id="studentNum" name="studentNum" type="text" placeholder="학번 입력"
+                               maxlength="8"
+                               oninput="changeStudentNum()" th:value="20181621">
             </div>
             <div id="studentNumError" class="error"></div>
 
             <div class="major">
                 <d>학과</d>
                 <s>*</s>
-                <input class="textarea" id="major" type="text" placeholder="학과 선택" readonly>
+                <input class="textarea" id="major" name="major" type="text" placeholder="학과 선택" readonly th:value="소프트웨어학과">
             </div>
             <div id="majorError" class="error"></div>
 
             <div class="year">
                 <d>기수</d>
                 <s>*</s>
-                <input class="textarea" id="year" type="text" placeholder="기수 선택" readonly>
+                <input class="textarea" id="year" name="year" type="text" placeholder="기수 선택" readonly th:value="U30">
             </div>
             <div id="yearError" class="error"></div>
 
             <div class="session">
                 <d>세션</d>
                 <s>*</s>
-                <input class="textarea" id="session" type="text" placeholder="세션 선택" readonly>
+                <input class="textarea" id="session" name="session" type="text" placeholder="세션 선택" readonly th:value="드럼">
             </div>
             <div id="sessionError" class="error"></div>
 
             <div class="position" id="position">
                 <d>직급</d>
                 <s>*</s>
-                <label class="rdobtn"><input id="position_manager" type="radio" name="position"><span>간부</span></label>
-                <label class="rdobtn"><input id="position_user" type="radio" name="position"><span>동아리원</span></label>
+                <label class="rdobtn"><input id="position_manager" type="radio" name="position" value="간부"
+                                             checked><span>간부</span></label>
+                <label class="rdobtn"><input id="position_user" type="radio" name="position" value="동아리원"><span>동아리원</span></label>
             </div>
             <div id="positionError" class="error"></div>
 
             <div class="gender">
                 <d>성별</d>
                 <s>*</s>
-                <label class="rdobtn"><input id="gender_man" type="radio" name="gender"><span>남자</span></label>
-                <label class="rdobtn"><input id="gender_woman" type="radio" name="gender"><span>여자</span></label>
+                <label class="rdobtn"><input id="gender_man" type="radio" name="gender" value="남"
+                                             checked><span>남자</span></label>
+                <label class="rdobtn"><input id="gender_woman" type="radio" name="gender" value="여"><span>여자</span></label>
             </div>
             <div id="genderError" class="error"></div>
 
@@ -322,13 +316,13 @@
         </div>
 
         <div class="signup">
-            <button type="submit" class="btn" id="signUpButton" onclick="signUpCheck()">가입하기</button>
+            <button type="button" class="btn" id="signup_submit" onclick="javascript:signUpCheck()">가입하기</button>
         </div>
     </div>
 
     <div class="modal2">
     </div>
-<!--</form>-->
+</form>
 <script>
 
     //비밀번호 실시간 확인
@@ -337,9 +331,11 @@
             $('#checkpwError').html('');
 
             if ($('#pw').val() != $('#checkpw').val()) {
+                $('#pwError').html('');
                 $('#checkpwError').html('비밀번호가 동일하지 않습니다.');
                 document.getElementById("checkpwError").style.color = "rgba(248,42,42,0.7)";
             } else {
+                $('#pwError').html('');
                 $('#checkpwError').html('비밀번호 일치함');
                 document.getElementById("checkpwError").style.color = "rgba(16,201,197,0.7)";
             }
@@ -349,7 +345,12 @@
         $('#checkpw').keyup(function () {
 
             if ($('#pw').val() != $('#checkpw').val()) {
+                $('#pwError').html('');
                 $('#checkpwError').html('비밀번호가 동일하지 않습니다.');
+                document.getElementById("checkpwError").style.color = "rgba(248,42,42,0.7)";
+            } else if (pw === "" && checkpw === ""){
+                $('#pwError').html('');
+                $('#checkpwError').html('비밀번호를 입력하세요.');
                 document.getElementById("checkpwError").style.color = "rgba(248,42,42,0.7)";
             } else {
                 $('#checkpwError').html('비밀번호 일치함');
@@ -359,21 +360,25 @@
         });
     });
 
+    // noinspection JSJQueryEfficiency
     $("#major").click(function () {
         $(".major-modal").show();
         $(".modal2").show();
     });
 
+    // noinspection JSJQueryEfficiency
     $("#year").click(function () {
         $(".year-modal").show();
         $(".modal2").show();
     });
 
+    // noinspection JSJQueryEfficiency
     $("#session").click(function () {
         $(".session-modal").show();
         $(".modal2").show();
     });
 
+    // noinspection JSJQueryEfficiency
     $(".modal2").click(function () {
         $(".major-modal").hide();
         $(".year-modal").hide();
@@ -401,6 +406,61 @@
     });
 
     document.getElementById("title").innerText = "회원가입";
+
+
+    function getMajor() {
+        // 선택된 목록 가져오기
+        const query = 'input[name="major"]:checked';
+        const selectedEls =
+            document.querySelectorAll(query);
+
+        // 선택된 목록에서 value 찾기
+        let result = '';
+        selectedEls.forEach((el) => {
+            result += el.value + ' ';
+        });
+
+        document.getElementById("year").focus();
+        $("#major").val(result)
+        $(".major-modal").hide();
+        $(".modal2").hide();
+
+    }
+
+    function getYear() {
+        // 선택된 목록 가져오기
+        const query = 'input[name="year"]:checked';
+        const selectedEls =
+            document.querySelectorAll(query);
+
+        // 선택된 목록에서 value 찾기
+        let result = '';
+        selectedEls.forEach((el) => {
+            result += el.value + ' ';
+        });
+        document.getElementById("session").focus();
+        $("#year").val(result)
+        $(".year-modal").hide();
+        $(".modal2").hide();
+
+    }
+
+    function getSession() {
+        // 선택된 목록 가져오기
+        const query = 'input[name="session"]:checked';
+        const selectedEls =
+            document.querySelectorAll(query);
+
+        // 선택된 목록에서 value 찾기
+        let result = '';
+        selectedEls.forEach((el) => {
+            result += el.value + ' ';
+        });
+        $("#session").val(result)
+        $(".session-modal").hide();
+        $(".modal2").hide();
+
+    }
 
 </script>
 </body>

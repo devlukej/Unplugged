@@ -4,29 +4,30 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
+import java.sql.Date;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
 @Table(name = "user_info")
-public class UserEntity {
+public class UserEntity extends TimeEntity{
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long num;
-
-    @Column(length = 50, nullable = false)
+    @Column(length = 20, nullable = false)
     private String id;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 100, nullable = false)
     private String pw;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 20, nullable = false)
     private String name;
 
-    @Column(length = 20, nullable = false)
+    @Column(length = 20)
     private String phone;
 
     @Column(length = 20, nullable = false)
@@ -41,40 +42,33 @@ public class UserEntity {
     @Column(length = 20, nullable = false)
     private String session;
 
-    @Column(length = 2, nullable = false)
+    @Column(length = 20, nullable = false)
     private String position;
 
-    @Column(length = 2, nullable = false)
+    @Column(length = 20, nullable = false)
     private String gender;
 
-   // @Column(length = 100, nullable = false)
-  //  private String date;
+    @Column(length = 20)
+    private String birthday;
 
- //   @Column(length = 100, nullable = false)
- //   private String profile;
-
-//    @Column(length = 100, nullable = false)
-//    private String birthday;
-
-    @Column(length = 2, nullable = false)
+    @Column(length = 20)
     private String state;
 
 
 
-
     @Builder
-    public UserEntity(Long num, String id , String pw , String name , String phone , String studentNum , String major , String year , String session , String position , String gender , String state) {
-        this.num = num;
+    public UserEntity(String id, String pw, String name, String phone, String studentNum, String major, String year, String session, String position, String gender, String state, String birthday) {
         this.id = id;
         this.pw = pw;
         this.name = name;
         this.phone = phone;
-        this.studentNum =studentNum;
+        this.studentNum = studentNum;
         this.major = major;
         this.year = year;
         this.session = session;
         this.position = position;
         this.gender = gender;
+        this.birthday = birthday;
         this.state = state;
 
     }

@@ -45,11 +45,11 @@ li {
 .plus {
     font-weight: normal;
     font-size: 10px;
-    color: #727272;
+    color: blue;
     display: flex;
     align-content: flex-end;
 }
 
-.notice a {
+.main_text {
     border-bottom: solid black 1px;
 }

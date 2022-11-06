@@ -41,10 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/")
-                //.usernameParameter("파라미터명")
-                //로그인 form에서 아이디는 name=username인 input을 기본으로 인식하는데
-                //usernameParameter() 메서드를 통해 파라미터명을 변경할 수 있습니다. ( 예제에는 적용 안함 )
-                // .usernameParameter("id")
+                .usernameParameter("id")
                 .permitAll()
                 .and() // 로그아웃 설정
                 .logout()

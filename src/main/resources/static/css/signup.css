@@ -75,11 +75,15 @@
 }
 
 .areabox {
-    padding-top: 60px;
     margin-left: 10px;
 }
 .body {
     overflow: auto;
+    top: 62px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
 }
 s {
     color: #FF0000;
@@ -103,33 +107,6 @@ d {
     width: 70%;
     height: 40px;
     border: solid black 1px;
-}
-
-f {
-    margin-right: 10px;
-    float: right;
-    width: 70%;
-    height: 40px;
-}
-
-.phonebox {
-    background-color: rgba(214, 228, 255, 0.5);
-    border-radius: 20px;
-    height: 40px;
-    border: solid black 1px;
-    text-align: center;
-}
-
-#phone1 {
-    width: 20%;
-}
-
-#phone2 {
-    width: 30%;
-}
-
-#phone3 {
-    width: 30%;
 }
 
 .name {

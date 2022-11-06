@@ -50,8 +50,8 @@
                 <dl>
                     <dt>동아리원</dt>
                     <ul class="menu-slide">
-                        <li><a href="#"><span>공지사항</span></a></li>
-                        <li><a href="#"><span>행사일정</span></a></li>
+                        <li><a th:href="@{/notice}"><span>공지사항</span></a></li>
+                        <li><a th:href="@{/event}"><span>행사일정</span></a></li>
                         <li><a href="#"><span>투표하기</span></a></li>
                         <li><a href="#"><span>악보공유</span></a></li>
                         <li><a href="#"><span>장부확인</span></a></li>
@@ -65,7 +65,7 @@
                     <dt>간부</dt>
                     <ul class="menu-slide">
                         <li><a href="#"><span>가입승인</span></a></li>
-                        <li><a href="#"><span>명단관리</span></a></li>
+                        <li><a th:href="@{/userList}"><span>명단관리</span></a></li>
                     </ul>
                 </dl>
             </div>
@@ -77,8 +77,9 @@
 </div>
 
 <div class="header">
-    <a th:href="@{/}" id="title">UNPLUGGED</a>
-
+    <div class="title">
+        <a th:href="@{/}" id="title">UNPLUGGED</a>
+    </div>
     <div class="div-open"><img src="/img/menu.png"/></div>
 </div>
 

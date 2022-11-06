@@ -3,7 +3,8 @@ package com.example.unplugged.dto;
 import com.example.unplugged.domain.entity.UserEntity;
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -11,7 +12,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class UserDto {
 
-    private Long num;
     private String id;
     private String pw;
     private String name;
@@ -22,15 +22,12 @@ public class UserDto {
     private String session;
     private String position;
     private String gender;
+    private String birthday;
     private String state;
-
-    private LocalDateTime birthday;
-
-    private LocalDateTime date;
+    private LocalDate date;
 
     public UserEntity toEntity(){
         return UserEntity.builder()
-                .num(num)
                 .id(id)
                 .pw(pw)
                 .name(name)
@@ -42,12 +39,12 @@ public class UserDto {
                 .position(position)
                 .gender(gender)
                 .state(state)
+                .birthday(birthday)
                 .build();
     }
 
     @Builder
-    public UserDto(Long num , String id , String pw , String name , String phone , String studentNum , String major , String year , String session , String position , String gender , String state) {
-        this.num = num;
+    public UserDto(String id , String pw , String name , String phone , String studentNum , String major , String year , String session , String position , String gender , String state , String birthday , LocalDate date) {
         this.id = id;
         this.pw = pw;
         this.name = name;
@@ -58,7 +55,9 @@ public class UserDto {
         this.session = session;
         this.position = position;
         this.gender = gender;
+        this.birthday = birthday;
         this.state = state;
+        this.date = date;
 
     }
 }
