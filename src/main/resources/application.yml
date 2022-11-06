@@ -19,7 +19,7 @@ spring:
     show-sql: true
     hibernate:
       format_sql: false
-      ddl-auto: create
+      ddl-auto: update
     defer-datasource-initialization: true
 
 logging:
