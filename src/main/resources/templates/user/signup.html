@@ -7,7 +7,6 @@
     <title>Main</title>
     <link rel="stylesheet" th:href="@{/css/signup.css}">
     <script src="/js/signup.js"></script>
-    <script src="../../static/js/signup.js"></script>
 </head>
 <body>
 
@@ -330,11 +329,11 @@
         $('#pw').keyup(function () {
             $('#checkpwError').html('');
 
-            if ($('#pw').val() != $('#checkpw').val()) {
+            if ($('#pw').val() !== $('#checkpw').val()) {
                 $('#pwError').html('');
                 $('#checkpwError').html('비밀번호가 동일하지 않습니다.');
                 document.getElementById("checkpwError").style.color = "rgba(248,42,42,0.7)";
-            } else {
+            } else if ($('#pw').val() === $('#checkpw').val()){
                 $('#pwError').html('');
                 $('#checkpwError').html('비밀번호 일치함');
                 document.getElementById("checkpwError").style.color = "rgba(16,201,197,0.7)";
@@ -344,15 +343,15 @@
 
         $('#checkpw').keyup(function () {
 
-            if ($('#pw').val() != $('#checkpw').val()) {
+            if ($('#pw').val() !== $('#checkpw').val()) {
                 $('#pwError').html('');
                 $('#checkpwError').html('비밀번호가 동일하지 않습니다.');
                 document.getElementById("checkpwError").style.color = "rgba(248,42,42,0.7)";
-            } else if (pw === "" && checkpw === ""){
+            } else if ($('#pw').val() === "" && $('#checkpw').val() === ""){
                 $('#pwError').html('');
                 $('#checkpwError').html('비밀번호를 입력하세요.');
                 document.getElementById("checkpwError").style.color = "rgba(248,42,42,0.7)";
-            } else {
+            } else if($('#pw').val() === $('#checkpw').val()) {
                 $('#checkpwError').html('비밀번호 일치함');
                 document.getElementById("checkpwError").style.color = "rgba(16,201,197,0.7)";
             }

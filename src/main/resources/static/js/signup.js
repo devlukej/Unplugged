@@ -89,11 +89,11 @@ function signUpCheck() {
         document.getElementById("checkpwError").style.color = "rgba(248,42,42,0.7)";
         document.getElementById("pwError").innerHTML = "비밀번호를 다시 입력해주세요."
         document.getElementById("checkpwError").innerHTML = ""
-        document.getElementById("pw").innerText = ""
+        document.getElementById("pw").innerHTML = ""
         document.getElementById("checkpw").innerText = ""
         document.getElementById("pw").focus();
         return false
-    } else {
+    } else if(checkpw == pw){
         document.getElementById("checkpwError").style.color = "rgba(16,201,197,0.7)";
         document.getElementById("checkpwError").innerHTML = "비밀번호 일치함"
         document.getElementById("pwError").innerHTML = ""
