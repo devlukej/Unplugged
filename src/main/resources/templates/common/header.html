@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="kr" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>Unpluged</title>
+    <title>UNPLUGGED</title>
     <link rel="stylesheet" th:href="@{/css/index.css}">
     <link rel="stylesheet" th:href="@{/css/header.css}">
 
@@ -22,19 +22,19 @@
                 <div class="div-close"><img src="/img/Close.png"/></div>
             </div>
 
-            <div class="info">
-
+            <div class="menu_info">
                 <div class="profile">
                     <img src="/img/profile.png" width="51" height="51"/>
                 </div>
 
                 <div class="login">
                     <div class="msg">
-                        <b>로그인이 필요합니다.</b>
+                        <b sec:authorize="isAnonymous()">로그인이 필요합니다.</b>
+                        <b sec:authorize="isAuthenticated()"><span sec:authentication="name"></span></b>
                     </div>
                     <div class="choice">
                         <a sec:authorize="isAnonymous()" th:href="@{/login}">로그인</a>
-                        <a sec:authorize="isAuthenticated()" th:href="@{/info}">내정보</a>
+                        <a sec:authorize="isAuthenticated()" th:href="@{/myinfo}">내정보</a>
                         <a sec:authorize="isAnonymous()" th:href="@{/signup}" id="signup">회원가입</a>
                         <a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
                     </div>

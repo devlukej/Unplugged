@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @AllArgsConstructor
-public class BoardController {
+public class UserController {
     private UserService userService;
 
     @GetMapping("/")
     public String list() {
+
         return "board/main";
     }
 
@@ -40,12 +41,6 @@ public class BoardController {
         return "user/login";
     }
 
-    // 로그인 결과 페이지
-    @GetMapping("/login/result")
-    public String dispLoginResult() {
-        return "user/loginSuccess";
-    }
-
     // 접근 거부 페이지
     @GetMapping("/denied")
     public String dispDenied() {
@@ -53,25 +48,8 @@ public class BoardController {
     }
 
     // 내 정보 페이지
-    @GetMapping("/info")
+    @GetMapping("/myinfo")
     public String dispMyInfo() {
         return "user/myinfo";
     }
-
-    @GetMapping("/notice")
-    public String noticeList() {
-
-        return "board/notice";
-    }
-
-    @GetMapping("/event")
-    public String eventList() {
-        return "board/event";
-    }
-
-    @GetMapping("/admin/userList")
-    public String userList() {
-        return "board/userList";
-    }
 }
-

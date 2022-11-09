@@ -100,7 +100,7 @@ li {
     padding: 10px 10px 10px 10px;
 }
 
-.info {
+.menu_info {
     margin-top: 15px;
     display: flex;
     justify-content: space-evenly;
@@ -113,7 +113,7 @@ li {
 
 .login{
     margin-top: 5px;
-    margin-right: 5px;
+    width: 120px;
 }
 
 .choice {

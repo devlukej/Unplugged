@@ -1,0 +1,67 @@
+.check {
+    border: solid 1px black;
+}
+.left {
+    width: 30%;
+    height: 100%;
+    float: left;
+}
+
+.right {
+    height: 100%;
+    width: 70%;
+    float: right;
+}
+.info {
+    width: 100%;
+    float: left;
+    margin-bottom: 12px;
+}
+
+.info_text {
+    font-size: 20px;
+    font-weight: bold;
+    width: 35%;
+    float: left;
+}
+
+.info_data {
+    width: 65%;
+    font-size: 20px;
+    float: right;
+}
+
+.body {
+    padding: 9px 18px;
+    top: 62px;
+    left: 0;
+    right: 0;
+    bottom: 84px;
+    position: absolute;
+}
+
+.change-btn {
+    width: 104px;
+    border: 1px solid black;
+    background: #D6E4FF;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.back-btn {
+    width: 95%;
+    display: block;
+    border: 1px solid black;
+    background: #D6E4FF;
+    height: 54px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto;
+}
+.btn-box {
+    width: 100%;
+    bottom: 30px;
+    position: absolute;
+}

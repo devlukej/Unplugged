@@ -1,10 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>UNPLUGGED</title>
+    <link rel="stylesheet" th:href="@{/css/myinfo.css}">
 </head>
 <body>
+<div th:insert="common/header.html" class="header"></div>
 
+<div class="body">
+    <div class="left">
+        <div class="profile">
+            <img class="check" src="/img/profile.png" width="104" height="104"/>
+        </div>
+        <div class="profile-change">
+            <button class="change-btn">사진 변경</button>
+        </div>
+    </div>
+    <div class="right">
+        <div class="info">
+            <p class="info_text">이름</p>
+            <p class="info_data">조찬호</p>
+        </div>
+        <div class="info">
+            <p class="info_text">성별</p>
+            <p class="info_data">남</p>
+        </div>
+        <div class="info">
+            <p class="info_text">아이디</p>
+            <p class="info_data">cici11x</p>
+        </div>
+        <div class="info">
+            <p class="info_text">학과</p>
+            <p class="info_data">소프트웨어학과</p>
+        </div>
+        <div class="info">
+            <p class="info_text">학번</p>
+            <p class="info_data">20181621</p>
+        </div>
+        <div class="info">
+            <p class="info_text">연락처</p>
+            <p class="info_data">010-4542-7544</p>
+        </div>
+        <div class="info">
+            <p class="info_text">기수</p>
+            <p class="info_data">U26</p>
+        </div>
+        <div class="info">
+            <p class="info_text">세션</p>
+            <p class="info_data">드럼</p>
+        </div>
+        <div class="info">
+            <p class="info_text">직급</p>
+            <p class="info_data">간부</p>
+        </div>
+        <div class="info">
+            <p class="info_text">생년월일</p>
+            <p class="info_data">1999-02-26</p>
+        </div>
+        <div class="info">
+            <p class="info_text">가입일</p>
+            <p class="info_data">2022-11-10</p>
+        </div>
+    </div>
+</div>
+<div class="btn-box">
+    <button class="back-btn" onclick="location.href='/'">돌아가기</button>
+</div>
+<div th:insert="common/footer.html" class="footer"></div>
 </body>
 </html>

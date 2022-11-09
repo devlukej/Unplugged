@@ -4,7 +4,6 @@ import com.example.unplugged.domain.entity.UserEntity;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Getter
 @Setter
