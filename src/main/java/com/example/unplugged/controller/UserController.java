@@ -44,31 +44,37 @@ public class UserController {
     // 접근 거부 페이지
     @GetMapping("/denied")
     public String dispDenied() {
+
         return "user/denied";
     }
 
     // 내 정보 페이지
     @GetMapping("/myinfo")
     public String dispMyInfo() {
+
         return "user/myinfo";
     }
 
     @GetMapping("/event")
     public String dispEvent() {
+
         return "board/event";
     }
 
     @GetMapping("/notice")
     public String dispNotice() {
+
         return "board/notice";
     }
 
     @GetMapping("/admin/userJoin")
     public String dispUserJoin() {
+
         return "board/userJoin";
     }
     @GetMapping("/admin/userList")
     public String dispUserList() {
+
         return "board/userList";
     }
 }
