@@ -9,7 +9,7 @@
     <script src="/js/signup.js"></script>
 </head>
 <body>
-
+<form id="form" th:action="@{/signup}" method="post" modelAttribute="userDto">
     <!-- HEADER -->
     <div th:insert="common/header.html" class="header"></div>
 
@@ -122,7 +122,7 @@
             </modal-label>
         </div>
         <div class="modal-choice">
-            <button class="modal-btn" id="major-btn" onclick="getMajor()">선택완료</button>
+            <a class="modal-btn" id="major-btn" onclick="getMajor()"><label class="modal-check">선택완료</label></a>
         </div>
     </div>
 
@@ -184,7 +184,7 @@
             <modal-label><label><input class="radiobtn" type="radio" name="year" value="U50">U50</label></modal-label>
         </div>
         <div class="modal-choice">
-            <button class="modal-btn" id="year-btn" onclick="getYear()">선택완료</button>
+            <a class="modal-btn" id="year-btn" onclick="getYear()"><label class="modal-check">선택완료</label></a>
         </div>
     </div>
 
@@ -211,11 +211,10 @@
             </modal-cklabel>
         </div>
         <div class="modal-choice">
-            <button class="modal-btn" id="session-btn" onclick="getSession()">선택완료</button>
+                <a class="modal-btn" id="session-btn" onclick="getSession()"><label class="modal-check">선택완료</label></a>
         </div>
     </div>
 
-    <form id="form" th:action="@{/signup}" method="post" modelAttribute="userDto">
     <div class="body">
         <div class="areabox">
             <div class="name">
@@ -315,7 +314,7 @@
         </div>
 
         <div class="signup">
-            <button type="button" class="btn" id="signup_submit" onclick="javascript:signUpCheck()">가입하기</button>
+            <button class="btn" id="signup_submit" onclick="javascript:signUpCheck()">가입하기</button>
         </div>
     </div>
 
@@ -416,7 +415,7 @@
         // 선택된 목록에서 value 찾기
         let result = '';
         selectedEls.forEach((el) => {
-            result += el.value + ' ';
+            result = el.value + ' ';
         });
 
         document.getElementById("year").focus();
@@ -435,7 +434,7 @@
         // 선택된 목록에서 value 찾기
         let result = '';
         selectedEls.forEach((el) => {
-            result += el.value + ' ';
+            result += el.value;
         });
         document.getElementById("session").focus();
         $("#year").val(result)
