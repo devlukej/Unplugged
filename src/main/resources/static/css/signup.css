@@ -298,6 +298,13 @@ body {
     position: relative;
 }
 
+.check-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 52px;
+}
+
 .modal2 {
     position: fixed;
     width: 100%;

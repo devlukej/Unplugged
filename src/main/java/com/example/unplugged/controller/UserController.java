@@ -1,10 +1,14 @@
 package com.example.unplugged.controller;
 
 import com.example.unplugged.dto.UserDto;
+import com.example.unplugged.service.MemberUser;
 import com.example.unplugged.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
@@ -29,6 +33,7 @@ public class UserController {
     @PostMapping("/signup")
     public String execSignup(UserDto userDto) {
 
+
         userService.joinUser(userDto);
 
         return "redirect:/login";
@@ -50,31 +55,44 @@ public class UserController {
 
     // 내 정보 페이지
     @GetMapping("/myinfo")
-    public String dispMyInfo() {
+    public String dispMyInfo(@AuthenticationPrincipal MemberUser user, Model model) {
 
+        if (user == null) {
+
+            return "redirect:/login";
+        }
+
+        model.addAttribute("user", user);
         return "user/myinfo";
     }
 
-    @GetMapping("/event")
+    @GetMapping("/user/event")
     public String dispEvent() {
 
-        return "board/event";
+        return "user/event";
     }
 
-    @GetMapping("/notice")
+    @GetMapping("/user/notice")
     public String dispNotice() {
 
-        return "board/notice";
+        return "user/notice";
     }
 
     @GetMapping("/admin/userJoin")
-    public String dispUserJoin() {
+    public String dispUserJoin(@AuthenticationPrincipal MemberUser user, Model model) {
 
-        return "board/userJoin";
+        if (user == null) {
+
+            return "redirect:/login";
+        }
+
+        model.addAttribute("user", user);
+        return "admin/userJoin";
     }
+
     @GetMapping("/admin/userList")
     public String dispUserList() {
 
-        return "board/userList";
+        return "admin/userList";
     }
 }

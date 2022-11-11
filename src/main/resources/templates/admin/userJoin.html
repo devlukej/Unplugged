@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="kr" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>UNPLUGGED</title>
+    <link rel="stylesheet" th:href="@{/css/userJoin.css}">
+</head>
+<body>
+<!-- HEADER -->
+<div th:insert="common/header.html" class="header"></div>
+
+<div class="body">
+    <div id="table">
+        <table>
+            <thead id="thead">
+            <tr>
+                <th>이름</th>
+                <th>연락처</th>
+                <th>기수</th>
+                <th>세션</th>
+                <th>직책</th>
+                <th>승인</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>
+                    <span th:text="${user.userEntity.name}"></span>
+                </td>
+                <td>
+                    <span th:text="${user.userEntity.phone}"></span>
+                </td>
+                <td>
+                    <span th:text="${user.userEntity.year}"></span>
+                </td>
+                <td>
+                    <span th:text="${user.userEntity.session}"></span>
+                </td>
+                <td>
+                    <span th:text="${user.userEntity.position}"></span>
+                </td>
+                <td>
+                    <span>O</span>
+                    <span>X</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div th:insert="common/footer.html" class="footer"></div>
+
+</body>
+</html>

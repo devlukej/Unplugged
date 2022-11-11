@@ -22,47 +22,47 @@
     <div class="right">
         <div class="info">
             <p class="info_text">이름</p>
-            <p class="info_data">조찬호</p>
+            <p class="info_data"><span th:text="${user.userEntity.name}"></span></p>
         </div>
         <div class="info">
             <p class="info_text">성별</p>
-            <p class="info_data">남</p>
+            <p class="info_data"><span th:text="${user.userEntity.gender}"></span></p>
         </div>
         <div class="info">
             <p class="info_text">아이디</p>
-            <p class="info_data">cici11x</p>
+            <p class="info_data"><span th:text="${user.userEntity.id}"></span></p>
         </div>
         <div class="info">
             <p class="info_text">학과</p>
-            <p class="info_data">소프트웨어학과</p>
+            <p class="info_data"><span th:text="${user.userEntity.major}"></span></p>
         </div>
         <div class="info">
             <p class="info_text">학번</p>
-            <p class="info_data">20181621</p>
+            <p class="info_data"><span th:text="${user.userEntity.studentNum}"></span></p>
         </div>
         <div class="info">
             <p class="info_text">연락처</p>
-            <p class="info_data">010-4542-7544</p>
+            <p class="info_data"><span th:text="${user.userEntity.phone}"></span></p>
         </div>
         <div class="info">
             <p class="info_text">기수</p>
-            <p class="info_data">U26</p>
+            <p class="info_data"><span th:text="${user.userEntity.year}"></span></p>
         </div>
         <div class="info">
             <p class="info_text">세션</p>
-            <p class="info_data">드럼</p>
+            <p class="info_data"><span th:text="${user.userEntity.session}"></span></p>
         </div>
         <div class="info">
-            <p class="info_text">직급</p>
-            <p class="info_data">간부</p>
+            <p class="info_text">직책</p>
+            <p class="info_data"><span th:text="${user.userEntity.position}"></span></p>
         </div>
         <div class="info">
             <p class="info_text">생년월일</p>
-            <p class="info_data">1999-02-26</p>
+            <p class="info_data"><span th:text="${user.userEntity.birthday}"></span></p>
         </div>
         <div class="info">
             <p class="info_text">가입일</p>
-            <p class="info_data">2022-11-10</p>
+            <p class="info_data"><span th:text="${user.userEntity.date}"></span></p>
         </div>
     </div>
 </div>
@@ -70,5 +70,7 @@
     <button class="back-btn" onclick="location.href='/'">돌아가기</button>
 </div>
 <div th:insert="common/footer.html" class="footer"></div>
+<script>
+</script>
 </body>
 </html>

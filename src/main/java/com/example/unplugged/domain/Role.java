@@ -7,7 +7,9 @@ import lombok.Getter;
 @Getter
 public enum Role {
     MANAGER("ROLE_MANAGER"),
-    USER("ROLE_USER");
+    USER("ROLE_USER"),
 
-    private String value;
+    GUEST("ROLE_GUEST");
+
+    private  String value;
 }

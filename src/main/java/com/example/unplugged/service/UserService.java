@@ -37,7 +37,12 @@ public class UserService implements UserDetailsService {
         Optional<UserEntity> userEntityWrapper = userRepository.findById(id);
         UserEntity userEntity = userEntityWrapper.get();
 
+        if (userEntityWrapper == null) {
+            throw new UsernameNotFoundException(id);
+        }
+
         List<GrantedAuthority> authorities = new ArrayList<>();
+
 
         if (("간부").equals(userEntity.getPosition())) {
             authorities.add(new SimpleGrantedAuthority(Role.MANAGER.getValue()));
@@ -45,7 +50,7 @@ public class UserService implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority(Role.USER.getValue()));
         }
 
-        return new User(userEntity.getId(), userEntity.getPw(), authorities);
+        return new MemberUser(userEntity.getId(), userEntity.getPw(), authorities, userEntity);
     }
 
 
