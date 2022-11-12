@@ -13,7 +13,7 @@ public interface UserRepository extends JpaRepository<UserEntity, String> {
         List<UserEntity> findByNameContaining(String nameKeyword);
         List<UserEntity> findByYearContaining(String yearKeyword);
         List<UserEntity> findBySessionContaining(String sessionKeyword);
-        List<UserEntity> findByPosition(String positionKeyword);
+        List<UserEntity> findByPositionContaining(String positionKeyword);
 
 
 

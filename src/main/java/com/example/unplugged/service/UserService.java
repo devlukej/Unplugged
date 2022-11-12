@@ -140,7 +140,7 @@ public class UserService implements UserDetailsService {
     @javax.transaction.Transactional
     public List<UserDto> searchUserPosition(String positionKeyword) {
 
-        List<UserEntity> userEntities = userRepository.findByPosition(positionKeyword);
+        List<UserEntity> userEntities = userRepository.findByPositionContaining(positionKeyword);
 
 
         List<UserDto> userDtoList = new ArrayList<>();
