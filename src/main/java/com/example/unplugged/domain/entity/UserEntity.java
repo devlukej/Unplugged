@@ -50,13 +50,12 @@ public class UserEntity extends TimeEntity{
     @Column(length = 20)
     private String birthday;
 
-    @Column(length = 20)
-    private String state;
+    private Boolean state;
 
 
 
     @Builder
-    public UserEntity(String id, String pw, String name, String phone, String studentNum, String major, String year, String session, String position, String gender, String state, String birthday) {
+    public UserEntity(String id, String pw, String name, String phone, String studentNum, String major, String year, String session, String position, String gender, Boolean state, String birthday) {
         this.id = id;
         this.pw = pw;
         this.name = name;

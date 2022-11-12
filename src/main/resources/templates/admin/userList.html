@@ -1,10 +1,83 @@
 <!DOCTYPE html>
-<html lang="kr">
+<html lang="kr" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>UNPLUGGED</title>
+    <link rel="stylesheet" th:href="@{/css/userList.css}">
+    <script src="/js/userList.js"></script>
 </head>
 <body>
-명단관리
+<!-- HEADER -->
+<div th:insert="common/header.html" class="header"></div>
+
+<div class="body">
+    <div id="table">
+        <table>
+            <thead>
+            <tr id="thead">
+                <th class="name">이름</th>
+                <th class="phone">연락처</th>
+                <th class="year">기수</th>
+                <th class="session">세션</th>
+                <th class="position">직책</th>
+            </tr>
+            <tr th:each="user : ${userList}">
+                <td class="name">
+                    <span th:text="${user.name}"></span>
+                </td>
+                <td class="phone">
+                    <span th:text="${user.phone}"></span>
+                </td>
+                <td class="year">
+                    <span th:text="${user.year}"></span>
+                </td>
+                <td class="session">
+                    <span th:text="${user.session}"></span>
+                </td>
+                <td class="position">
+                    <span th:text="${user.position}"></span>
+                </td>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<div class="list">
+            <span th:each="pageNum : ${pageList}" th:inline="text">
+                <a th:href="@{'/admin/userList?page=' + ${pageNum}}">[[${pageNum}]]</a>
+            </span>
+</div>
+
+<form action="/admin/userList/nameKeyword" method="GET" id="frm">
+    <div class="search">
+        <select id="sort" name="sort"  onchange="ChangeSelect()">
+            <option name="nameKeyword" id="nameKeyword" value="nameKeyword">이름</option>
+            <option name="yearKeyword" id="yearKeyword" value="yearKeyword">기수</option>
+            <option name="sessionKeyword" id="sessionKeyword" value="sessionKeyword">세션</option>
+            <option name="positionKeyword" id="positionKeyword" value="positionKeyword">직책</option>
+        </select>
+        <input class="size" name="nameKeyword" id="keyword" type="text">
+        <button class="search-btn">검색</button>
+    </div>
+</form>
+
+<!-- FOOTER -->
+<div th:insert="common/footer.html" class="footer"></div>
+<script>
+    document.getElementById("title").innerText = "명단관리";
+
+    function ChangeSelect() {
+
+        let langSelect = document.getElementById("sort");
+
+        // select element에서 선택된 option의 value가 저장된다.
+        let selectValue = langSelect.options[langSelect.selectedIndex].value;
+
+        document.getElementById("keyword").setAttribute("name", selectValue);
+        document.getElementById("frm").setAttribute("action", "/admin/userList/"+selectValue);
+
+    }
+</script>
 </body>
 </html>

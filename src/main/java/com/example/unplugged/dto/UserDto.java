@@ -43,7 +43,7 @@ public class UserDto {
     private String birthday;
 
     
-    private String state;
+    private Boolean state;
     private LocalDate date;
 
     public UserEntity toEntity(){
@@ -64,7 +64,7 @@ public class UserDto {
     }
 
     @Builder
-    public UserDto(String id , String pw , String name , String phone , String studentNum , String major , String year , String session , String position , String gender , String state , String birthday , LocalDate date) {
+    public UserDto(String id , String pw , String name , String phone , String studentNum , String major , String year , String session , String position , String gender , Boolean state , String birthday , LocalDate date) {
         this.id = id;
         this.pw = pw;
         this.name = name;

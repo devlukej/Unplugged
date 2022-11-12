@@ -1,0 +1,103 @@
+.body {
+    padding: 10px 12px 0 12px;
+    top: 62px;
+    left: 0;
+    right: 0;
+    bottom: 110px;
+    position: absolute;
+    overflow: auto;
+}
+
+.list {
+    width: 100%;
+    padding: 10px 12px 10px 5px;
+    bottom: 70px;
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+}
+.list span {
+    margin: 0 5px;
+}
+.list span a {
+    font-size: 15px;
+}
+.search {
+    width: 100%;
+    padding: 5px 12px;
+    bottom: 30px;
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+}
+
+tr {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+
+#thead {
+    background: #D6E4FF;;
+    width: 100%;
+    height: 42px;
+    border: 1px solid black;
+}
+
+tbody {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+.name {
+    width: 60px;
+}
+
+.phone {
+    width: 110px;
+}
+
+.year {
+    width: 32px;
+}
+.session {
+    width: 50px;
+}
+.position {
+    width: 70px;
+}
+
+.name span {
+    width: 100%;
+}
+
+.size {
+    font-size: 22px;
+    width: 240px;
+}
+
+.sort {
+    font-size: 20px;
+    border: 0;
+    border-radius: 5px;
+    background: #D6E4FF;
+    height: 30px;
+    font-weight: bold;
+}
+.search-btn {
+    font-size: 18px;
+    border: 0;
+    width: 50px;
+    height: 30px;
+    background: #D6E4FF;
+    border-radius: 5px;
+    font-weight: bold;
+}
