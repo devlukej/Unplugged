@@ -4,9 +4,68 @@
     <meta charset="UTF-8">
     <title>UNPLUGGED</title>
     <link rel="stylesheet" th:href="@{/css/userList.css}">
-    <script src="/js/userList.js"></script>
 </head>
 <body>
+
+<div class="info_modal">
+    <div class="modal-top">
+        <div class="modal-title">상세보기</div>
+    </div>
+    <div class="modal-body">
+        <div class="left" th:each="user : ${userDto}">
+            <div class="info">
+                <p class="info_text">이름</p>
+                <p class="info_data"><span th:text="${user.name}"></span></p>
+            </div>
+            <div class="info">
+                <p class="info_text">성별</p>
+                <p class="info_data"><span th:text="${user.gender}"></span></p>
+            </div>
+            <div class="info">
+                <p class="info_text">아이디</p>
+                <p class="info_data"><span th:text="${user.id}"></span></p>
+            </div>
+            <div class="info">
+                <p class="info_text">학과</p>
+                <p class="info_data"><span th:text="${user.major}"></span></p>
+            </div>
+            <div class="info">
+                <p class="info_text">학번</p>
+                <p class="info_data"><span th:text="${user.studentNum}"></span></p>
+            </div>
+            <div class="info">
+                <p class="info_text">연락처</p>
+                <p class="info_data"><span th:text="${user.phone}"></span></p>
+            </div>
+            <div class="info">
+                <p class="info_text">기수</p>
+                <p class="info_data"><span th:text="${user.year}"></span></p>
+            </div>
+            <div class="info">
+                <p class="info_text">세션</p>
+                <p class="info_data"><span th:text="${user.session}"></span></p>
+            </div>
+            <div class="info">
+                <p class="info_text">직책</p>
+                <p class="info_data"><span th:text="${user.position}"></span></p>
+            </div>
+            <div class="info">
+                <p class="info_text">생년월일</p>
+                <p class="info_data"><span th:text="${user.birthday}"></span></p>
+            </div>
+            <div class="info">
+                <p class="info_text">가입일</p>
+                <p class="info_data"><span th:text="${user.date}"></span></p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-foot">
+        <a class="modal-btn" id="modal-btn"><label class="modal-check">뒤로가기</label></a>
+    </div>
+</div>
+
+<div class="modal2">
+</div>
 <!-- HEADER -->
 <div th:insert="common/header.html" class="header"></div>
 
@@ -22,11 +81,11 @@
                 <th class="position">직책</th>
             </tr>
             <tr th:each="user : ${userList}">
-                <td class="name">
-                    <span th:text="${user.name}"></span>
+                <td class="name" id="name">
+                    <span th:text="${user.name}" class="info_detail"></span>
                 </td>
-                <td class="phone">
-                    <span th:text="${user.phone}"></span>
+                <td class="phone" id="phone">
+                    <span th:text="${user.phone}" class="phone_copy"></span>
                 </td>
                 <td class="year">
                     <span th:text="${user.year}"></span>
@@ -67,6 +126,26 @@
 <script>
     document.getElementById("title").innerText = "명단관리";
 
+    // noinspection JSJQueryEfficiency
+    $(".info_detail").click(function () {
+        $(".info_modal").show();
+        $(".modal2").show();
+    });
+
+    // noinspection JSJQueryEfficiency
+    $(".modal2").click(function () {
+        $(".info_modal").hide();
+        $(".modal2").hide();
+    });
+
+    $(".phone_copy").click(function (e) {
+        // div 내부 텍스트 취득
+        const valOfDIV = $(e.target).text();
+
+        navigator.clipboard.writeText(valOfDIV)
+
+    });
+
     function ChangeSelect() {
 
         let langSelect = document.getElementById("sort");
@@ -75,9 +154,10 @@
         let selectValue = langSelect.options[langSelect.selectedIndex].value;
 
         document.getElementById("keyword").setAttribute("name", selectValue);
-        document.getElementById("frm").setAttribute("action", "/admin/userList/"+selectValue);
+        document.getElementById("frm").setAttribute("action", "/admin/userList/" + selectValue);
 
     }
+
 </script>
 </body>
 </html>

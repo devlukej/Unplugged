@@ -5,14 +5,14 @@ import com.example.unplugged.service.MemberUser;
 import com.example.unplugged.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 
 @Controller
@@ -29,6 +29,7 @@ public class UserController {
     // 회원가입 페이지
     @GetMapping("/signup")
     public String dispSignup() {
+
         return "user/signup";
     }
 
@@ -92,19 +93,7 @@ public class UserController {
     }
 
     @GetMapping("/admin/userJoin")
-    public String dispUserJoin(@AuthenticationPrincipal MemberUser user, Model model) {
-
-        if (user == null) {
-
-            return "redirect:/login";
-        }
-
-        model.addAttribute("user", user);
-        return "admin/userJoin";
-    }
-
-    @GetMapping("/admin/userList")
-    public String dispUserList(@AuthenticationPrincipal MemberUser user, Model model,@RequestParam(value="page", defaultValue = "1") Integer pageNum){
+    public String dispUserJoin(@AuthenticationPrincipal MemberUser user, Model model, @RequestParam(value = "page", defaultValue = "1") Integer pageNum) {
 
 //        if (user == null) {
 //
@@ -114,7 +103,25 @@ public class UserController {
         List<UserDto> userList = userService.getUserlist(pageNum);
         Integer[] pageList = userService.getPageList(pageNum);
 
-        model.addAttribute("userList",userList);
+        model.addAttribute("userList", userList);
+        model.addAttribute("pageList", pageList);
+
+        return "admin/userJoin";
+    }
+
+    @GetMapping("/admin/userList")
+    public String dispUserList(@AuthenticationPrincipal MemberUser user, Model model, @RequestParam(value = "page", defaultValue = "1") Integer pageNum) {
+
+//        if (user == null) {
+//
+//            return "redirect:/login";
+//        }
+
+
+        List<UserDto> userList = userService.getUserlist(pageNum);
+        Integer[] pageList = userService.getPageList(pageNum);
+
+        model.addAttribute("userList", userList);
         model.addAttribute("pageList", pageList);
 
         return "admin/userList";
@@ -122,16 +129,17 @@ public class UserController {
 
     //이름검색
     @GetMapping("/admin/userList/nameKeyword")
-    public String searchUserName(@RequestParam(value="nameKeyword") String nameKeyword , Model model) {
+    public String searchUserName(@RequestParam(value = "nameKeyword") String nameKeyword, Model model) {
 
         List<UserDto> userDtoList = userService.searchUserName(nameKeyword);
 
         model.addAttribute("userList", userDtoList);
         return "/admin/userList";
     }
+
     //기수검색
     @GetMapping("/admin/userList/yearKeyword")
-    public String searchUserYear(@RequestParam(value="yearKeyword") String yearKeyword , Model model) {
+    public String searchUserYear(@RequestParam(value = "yearKeyword") String yearKeyword, Model model) {
 
         List<UserDto> userDtoList = userService.searchUserYear(yearKeyword);
 
@@ -141,7 +149,7 @@ public class UserController {
 
     //세션검색
     @GetMapping("/admin/userList/sessionKeyword")
-    public String searchUserSession(@RequestParam(value="sessionKeyword") String sessionKeyword , Model model) {
+    public String searchUserSession(@RequestParam(value = "sessionKeyword") String sessionKeyword, Model model) {
 
         List<UserDto> userDtoList = userService.searchUserSession(sessionKeyword);
 
@@ -151,12 +159,12 @@ public class UserController {
 
     //직급검색
     @GetMapping("/admin/userList/positionKeyword")
-    public String searchUserPosition(@RequestParam(value="positionKeyword") String positionKeyword , Model model) {
+    public String searchUserPosition(@RequestParam(value = "positionKeyword") String positionKeyword, Model model) {
 
         List<UserDto> userDtoList = userService.searchUserPosition(positionKeyword);
 
         model.addAttribute("userList", userDtoList);
         return "/admin/userList";
     }
-    
+
 }

@@ -11,5 +11,5 @@ public enum Role {
 
     GUEST("ROLE_GUEST");
 
-    private  String value;
+    private String value;
 }

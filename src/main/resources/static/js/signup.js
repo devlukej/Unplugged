@@ -126,7 +126,7 @@ function signUpCheck() {
         // 기수선택 확인
         if (year == "") {
             document.getElementById("yearError").innerHTML = "기수 선택"
-            document.getElementById("years").focus()
+            document.getElementById("year").focus()
 
         } else {
             document.getElementById("yearError").innerHTML = ""

@@ -1,8 +1,90 @@
 .body {
-    padding: 9px 18px;
+    padding: 10px 2px 0 2px;
     top: 62px;
     left: 0;
     right: 0;
     bottom: 30px;
     position: absolute;
+    overflow: auto;
+}
+
+tr {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#thead {
+    background: #D6E4FF;;
+    width: 100%;
+    height: 42px;
+    border: 1px solid black;
+}
+
+tbody {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+.name {
+    width: 60px;
+    text-align: center;
+}
+
+.phone {
+    width: 110px;
+    text-align: center;
+}
+
+.year {
+    width: 32px;
+    text-align: center;
+}
+
+.session {
+    width: 50px;
+    text-align: center;
+}
+
+.position {
+    width: 70px;
+    text-align: center;
+}
+
+.join {
+    width: 70px;
+    text-align: center;
+}
+
+#join {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#joinO {
+    font-weight: bold;
+    font-size: 22px;
+    color: rgba(16, 201, 197, 0.7);
+}
+
+#joinX {
+    font-weight: bold;
+    font-size: 22px;
+    color: rgba(248, 42, 42, 0.7);
+}
+
+#name {
+    color: rgba(14, 57, 224, 0.7);
+}
+
+#phone {
+    color: rgba(31, 148, 197, 0.7);
 }

@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Getter
 @Entity
 @Table(name = "user_info")
-public class UserEntity extends TimeEntity{
+public class UserEntity extends TimeEntity {
 
     @Id
     @Column(length = 20, nullable = false)
@@ -51,7 +51,6 @@ public class UserEntity extends TimeEntity{
     private String birthday;
 
     private Boolean state;
-
 
 
     @Builder

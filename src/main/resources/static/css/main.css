@@ -4,6 +4,7 @@
     height: 50%;
     padding: 9px 18px;
 }
+
 .main {
     padding: 9px 18px;
     top: 62px;
@@ -21,6 +22,7 @@ body {
 li span {
     font-weight: bold;
 }
+
 dt {
     margin-top: 18px;
     width: 100%;

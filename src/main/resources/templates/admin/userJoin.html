@@ -12,40 +12,33 @@
 <div class="body">
     <div id="table">
         <table>
-            <thead id="thead">
-            <tr>
-                <th>이름</th>
-                <th>연락처</th>
-                <th>기수</th>
-                <th>세션</th>
-                <th>직책</th>
-                <th>승인</th>
+            <thead>
+            <tr id="thead">
+                <th class="name">이름</th>
+                <th class="phone">연락처</th>
+                <th class="year">기수</th>
+                <th class="position">직책</th>
+                <th class="join">승인</th>
+            </tr>
+            <tr th:each="user : ${userList}">
+                <td class="name">
+                    <span th:text="${user.name}" id="name"></span>
+                </td>
+                <td class="phone" id="phone">
+                    <span th:text="${user.phone}"></span>
+                </td>
+                <td class="year">
+                    <span th:text="${user.year}"></span>
+                </td>
+                <td class="position">
+                    <span th:text="${user.position}"></span>
+                </td>
+                <td class="join" id="join">
+                    <a href="#" id="joinO">O</a>
+                    <a href="#" id="joinX">X</a>
+                </td>
             </tr>
             </thead>
-
-            <tbody>
-            <tr>
-                <td>
-                    <span th:text="${user.userEntity.name}"></span>
-                </td>
-                <td>
-                    <span th:text="${user.userEntity.phone}"></span>
-                </td>
-                <td>
-                    <span th:text="${user.userEntity.year}"></span>
-                </td>
-                <td>
-                    <span th:text="${user.userEntity.session}"></span>
-                </td>
-                <td>
-                    <span th:text="${user.userEntity.position}"></span>
-                </td>
-                <td>
-                    <span>O</span>
-                    <span>X</span>
-                </td>
-            </tr>
-            </tbody>
         </table>
     </div>
 </div>
@@ -54,6 +47,28 @@
 <div th:insert="common/footer.html" class="footer"></div>
 <script>
     document.getElementById("title").innerText = "가입승인";
+
+    document.getElementById("phone").onclick = function(){
+        // div 내부 텍스트 취득
+        const valOfDIV = document.getElementById("phone").innerText;
+
+        // textarea 생성
+        const textArea = document.createElement('textarea');
+
+        // textarea 추가
+        document.body.appendChild(textArea);
+
+        // textara의 value값으로 div내부 텍스트값 설정
+        textArea.value = valOfDIV;
+
+        // textarea 선택 및 복사
+        textArea.select();
+        document.execCommand('copy');
+
+        // textarea 제거
+        document.body.removeChild(textArea);
+    }
+
 </script>
 </body>
 </html>
