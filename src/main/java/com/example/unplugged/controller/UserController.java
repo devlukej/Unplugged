@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 
 @Controller
@@ -122,9 +123,9 @@ public class UserController {
 //            return "redirect:/login";
 //        }
 
-
         List<UserDto> userList = userService.getUserlist(pageNum);
         Integer[] pageList = userService.getPageList(pageNum);
+
         model.addAttribute("user", user);
 
         model.addAttribute("userList", userList);
@@ -135,41 +136,68 @@ public class UserController {
 
     //이름검색
     @GetMapping("/admin/userList/nameKeyword")
-    public String searchUserName(@RequestParam(value = "nameKeyword") String nameKeyword, Model model) {
+    public String searchUserName(@RequestParam(value = "nameKeyword") String nameKeyword, Model model, @AuthenticationPrincipal MemberUser user) {
 
-        List<UserDto> userDtoList = userService.searchUserName(nameKeyword);
+        model.addAttribute("user", user);
 
-        model.addAttribute("userList", userDtoList);
+        if (Objects.equals(nameKeyword, "")) {
+
+            return "redirect:/admin/userList";
+
+        } else {
+
+            List<UserDto> userDtoList = userService.searchUserName(nameKeyword);
+            model.addAttribute("userList", userDtoList);
+        }
+
         return "/admin/userList";
     }
 
     //기수검색
     @GetMapping("/admin/userList/yearKeyword")
-    public String searchUserYear(@RequestParam(value = "yearKeyword") String yearKeyword, Model model) {
+    public String searchUserYear(@RequestParam(value = "yearKeyword") String yearKeyword, Model model, @AuthenticationPrincipal MemberUser user) {
 
-        List<UserDto> userDtoList = userService.searchUserYear(yearKeyword);
+        model.addAttribute("user", user);
+        if (Objects.equals(yearKeyword, "")) {
 
-        model.addAttribute("userList", userDtoList);
+            return "redirect:/admin/userList";
+
+        } else {
+            List<UserDto> userDtoList = userService.searchUserYear(yearKeyword);
+            model.addAttribute("userList", userDtoList);
+        }
         return "/admin/userList";
     }
 
     //세션검색
     @GetMapping("/admin/userList/sessionKeyword")
-    public String searchUserSession(@RequestParam(value = "sessionKeyword") String sessionKeyword, Model model) {
+    public String searchUserSession(@RequestParam(value = "sessionKeyword") String sessionKeyword, Model model, @AuthenticationPrincipal MemberUser user) {
 
-        List<UserDto> userDtoList = userService.searchUserSession(sessionKeyword);
+        model.addAttribute("user", user);
+        if (Objects.equals(sessionKeyword, "")) {
 
-        model.addAttribute("userList", userDtoList);
+            return "redirect:/admin/userList";
+
+        } else {
+            List<UserDto> userDtoList = userService.searchUserSession(sessionKeyword);
+            model.addAttribute("userList", userDtoList);
+        }
         return "/admin/userList";
     }
 
     //직급검색
     @GetMapping("/admin/userList/positionKeyword")
-    public String searchUserPosition(@RequestParam(value = "positionKeyword") String positionKeyword, Model model) {
+    public String searchUserPosition(@RequestParam(value = "positionKeyword") String positionKeyword, Model model, @AuthenticationPrincipal MemberUser user) {
 
-        List<UserDto> userDtoList = userService.searchUserPosition(positionKeyword);
+        model.addAttribute("user", user);
+        if (Objects.equals(positionKeyword, "")){
 
-        model.addAttribute("userList", userDtoList);
+            return "redirect:/admin/userList";
+
+        } else {
+            List<UserDto> userDtoList = userService.searchUserPosition(positionKeyword);
+            model.addAttribute("userList", userDtoList);
+        }
         return "/admin/userList";
     }
 

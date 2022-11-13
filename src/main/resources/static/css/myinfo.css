@@ -29,9 +29,11 @@
 }
 
 .info_data {
-    width: 70%;
+    width: 65%;
     font-size: 18px;
     float: right;
+    display: flex;
+    margin-left: 5px;
 }
 
 .body {

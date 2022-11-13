@@ -5,6 +5,7 @@
     right: 0;
     bottom: 110px;
     position: absolute;
+    overflow: auto;
 }
 
 .list {

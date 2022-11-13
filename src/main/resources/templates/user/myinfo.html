@@ -42,7 +42,9 @@
         </div>
         <div class="info">
             <p class="info_text">연락처</p>
-            <p class="info_data"><span th:text="${user.userEntity.phone}"></span></p>
+            <p class="info_data"><span th:text="${user.userEntity.phone.substring(0,3)}"></span>
+                <span>-</span><span th:text="${user.userEntity.phone.substring(3,7)}"></span>
+                <span>-</span><span th:text="${user.userEntity.phone.substring(7,11)}"></span></p>
         </div>
         <div class="info">
             <p class="info_text">기수</p>
@@ -71,6 +73,7 @@
 </div>
 <div th:insert="common/footer.html" class="footer"></div>
 <script>
+
 </script>
 </body>
 </html>
