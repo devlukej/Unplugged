@@ -21,8 +21,9 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/")
-    public String list() {
+    public String list(@AuthenticationPrincipal MemberUser user, Model model) {
 
+        model.addAttribute("user", user);
         return "board/main";
     }
 
@@ -72,23 +73,26 @@ public class UserController {
     }
 
     @GetMapping("/user/event")
-    public String dispEvent(@AuthenticationPrincipal MemberUser user) {
+    public String dispEvent(@AuthenticationPrincipal MemberUser user, Model model) {
 
         if (user == null) {
 
             return "redirect:/login";
         }
+
+        model.addAttribute("user", user);
         return "user/event";
     }
 
     @GetMapping("/user/notice")
-    public String dispNotice(@AuthenticationPrincipal MemberUser user) {
+    public String dispNotice(@AuthenticationPrincipal MemberUser user, Model model) {
 
         if (user == null) {
 
             return "redirect:/login";
         }
 
+        model.addAttribute("user", user);
         return "user/notice";
     }
 
@@ -102,6 +106,7 @@ public class UserController {
 
         List<UserDto> userList = userService.getUserlist(pageNum);
         Integer[] pageList = userService.getPageList(pageNum);
+        model.addAttribute("user", user);
 
         model.addAttribute("userList", userList);
         model.addAttribute("pageList", pageList);
@@ -120,6 +125,7 @@ public class UserController {
 
         List<UserDto> userList = userService.getUserlist(pageNum);
         Integer[] pageList = userService.getPageList(pageNum);
+        model.addAttribute("user", user);
 
         model.addAttribute("userList", userList);
         model.addAttribute("pageList", pageList);

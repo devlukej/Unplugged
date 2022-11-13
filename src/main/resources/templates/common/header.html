@@ -30,7 +30,7 @@
                 <div class="login">
                     <div class="msg">
                         <b sec:authorize="isAnonymous()">로그인이 필요합니다.</b>
-                        <b sec:authorize="isAuthenticated()"><span sec:authentication="name"></span></b>
+                        <b sec:authorize="isAuthenticated()"><span th:text="${user.userEntity.year}"></span><span>-</span><span th:text="${user.userEntity.name}"></span></b>
                     </div>
                     <div class="choice">
                         <a sec:authorize="isAnonymous()" th:href="@{/login}">로그인</a>

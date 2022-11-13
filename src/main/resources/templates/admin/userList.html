@@ -12,50 +12,58 @@
         <div class="modal-title">상세보기</div>
     </div>
     <div class="modal-body">
-        <div class="left" th:each="user : ${userDto}">
+        <div class="left">
             <div class="info">
                 <p class="info_text">이름</p>
-                <p class="info_data"><span th:text="${user.name}"></span></p>
+                <p class="info_data">조찬호</p>
             </div>
             <div class="info">
                 <p class="info_text">성별</p>
-                <p class="info_data"><span th:text="${user.gender}"></span></p>
+                <p class="info_data">남</p>
             </div>
             <div class="info">
                 <p class="info_text">아이디</p>
-                <p class="info_data"><span th:text="${user.id}"></span></p>
+                <p class="info_data">admin</p>
             </div>
             <div class="info">
                 <p class="info_text">학과</p>
-                <p class="info_data"><span th:text="${user.major}"></span></p>
+                <p class="info_data">소프트웨어학과</p>
             </div>
             <div class="info">
                 <p class="info_text">학번</p>
-                <p class="info_data"><span th:text="${user.studentNum}"></span></p>
+                <p class="info_data">20181621</p>
             </div>
             <div class="info">
                 <p class="info_text">연락처</p>
-                <p class="info_data"><span th:text="${user.phone}"></span></p>
+                <p class="info_data">010-4542-7544</p>
             </div>
             <div class="info">
                 <p class="info_text">기수</p>
-                <p class="info_data"><span th:text="${user.year}"></span></p>
+                <p class="info_data">U26</p>
             </div>
             <div class="info">
                 <p class="info_text">세션</p>
-                <p class="info_data"><span th:text="${user.session}"></span></p>
+                <p class="info_data">드럼</p>
             </div>
             <div class="info">
                 <p class="info_text">직책</p>
-                <p class="info_data"><span th:text="${user.position}"></span></p>
+                <p class="info_data">간부</p>
             </div>
             <div class="info">
                 <p class="info_text">생년월일</p>
-                <p class="info_data"><span th:text="${user.birthday}"></span></p>
+                <p class="info_data">1999-02-26</p>
             </div>
             <div class="info">
                 <p class="info_text">가입일</p>
-                <p class="info_data"><span th:text="${user.date}"></span></p>
+                <p class="info_data">2022-11-10</p>
+            </div>
+        </div>
+        <div class="right">
+            <div class="profile">
+                <img class="check" src="/img/profile.png" width="120" height="120"/>
+            </div>
+            <div class="profile-change">
+                <p id="profile-tag">프로필 사진</p>
             </div>
         </div>
     </div>
@@ -134,6 +142,11 @@
 
     // noinspection JSJQueryEfficiency
     $(".modal2").click(function () {
+        $(".info_modal").hide();
+        $(".modal2").hide();
+    });
+
+    $(".modal-btn").click(function (){
         $(".info_modal").hide();
         $(".modal2").hide();
     });
