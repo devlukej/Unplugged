@@ -230,12 +230,11 @@ body {
 }
 
 .modal-title {
-    display: block;
-    vertical-align: top;
-    padding-top: 17px;
-    text-align: center;
     width: 100%;
     height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
     font-weight: bold;
     font-size: 19px;
 }
@@ -343,20 +342,26 @@ modal-cklabel {
     width: 100%;
     font-weight: bold;
     font-size: 19px;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 .modal-check {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 19px;
 }
 .modal-top {
     background: #D6E4FF;
     width: 100%;
     height: 10%;
     position: sticky;
-    top: -1px;
+    top: 0;
     left: 0;
     right: 0;
 }

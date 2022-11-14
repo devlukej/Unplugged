@@ -107,13 +107,13 @@ table {
 .left {
     height: 100%;
     width: 60%;
-    margin-top: 5px;
+    padding-top: 5px;
     float: left;
 }
 .right {
     width: 40%;
     height: 100%;
-    margin-top: 5px;
+    padding-top: 5px;
     float: right;
 }
 
@@ -129,6 +129,10 @@ table {
     justify-content: center;
 }
 
+.profile-userList {
+    display: flex;
+    justify-content: center;
+}
 .info {
     width: 100%;
     float: left;
@@ -162,12 +166,11 @@ table {
 }
 
 .modal-title {
-    display: block;
-    vertical-align: top;
-    padding-top: 17px;
-    text-align: center;
     width: 100%;
     height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
     font-weight: bold;
     font-size: 19px;
 }
@@ -176,6 +179,7 @@ table {
     width: 100%;
     height: 80%;
     position: relative;
+    overflow: auto;
 }
 
 .modal-btn {
@@ -185,13 +189,19 @@ table {
     width: 100%;
     font-weight: bold;
     font-size: 19px;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 .modal-check {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 19px;
 }
 .modal-top {
     background: #D6E4FF;
@@ -232,4 +242,25 @@ table {
 
 #phone {
     color: rgba(31, 148, 197, 0.7);
+}
+
+@media(max-width:390px) {
+    .search{
+        display: flex;
+    }
+    .sort{
+        flex: 1 1 60px;
+
+    }
+
+    .search-btn{
+        flex:1 1 60px;
+    }
+
+    .size {
+       /*width: 57%;*/
+       /* min-width: 120px;*/
+        flex: 1 1 auto;
+        margin: 0 5px;
+    }
 }

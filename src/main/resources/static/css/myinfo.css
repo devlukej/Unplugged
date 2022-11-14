@@ -19,6 +19,8 @@
     float: left;
     margin-bottom: 15px;
     margin-left: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .info_text {

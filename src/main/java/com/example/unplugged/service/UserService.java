@@ -26,7 +26,7 @@ import java.util.Optional;
 public class UserService implements UserDetailsService {
     private UserRepository userRepository;
 
-    private static final int BLOCK_PAGE_NUM_COUNT = 30; // 블럭에 존재하는 페이지 번호 수
+    private static final int BLOCK_PAGE_NUM_COUNT = 10; // 블럭에 존재하는 페이지 번호 수
     private static final int PAGE_POST_COUNT = 15; // 한 페이지에 존재하는 게시글 수
 
     @javax.transaction.Transactional
