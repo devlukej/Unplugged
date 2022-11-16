@@ -72,10 +72,13 @@ public class UserService implements UserDetailsService {
                 : totalLastPageNum;
 
         // 페이지 시작 번호 조정
-        curPageNum = (curPageNum <= 3) ? 1 : curPageNum - 2;
+        Integer blockStartPageNum =
+                (curPageNum <= BLOCK_PAGE_NUM_COUNT / 2)
+                        ? 1
+                        : curPageNum - BLOCK_PAGE_NUM_COUNT / 2;
 
         // 페이지 번호 할당
-        for (int val = curPageNum, idx = 0; val <= blockLastPageNum; val++, idx++) {
+        for (int val = blockStartPageNum, idx = 0; val <= blockLastPageNum; val++, idx++) {
             pageList[idx] = val;
         }
 
