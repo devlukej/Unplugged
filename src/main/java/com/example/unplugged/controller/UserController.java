@@ -7,12 +7,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 
@@ -76,14 +73,29 @@ public class UserController {
     @GetMapping("/user/event")
     public String dispEvent(@AuthenticationPrincipal MemberUser user, Model model) {
 
+        /* 임시로 해제했어요 - 호준
         if (user == null) {
-
             return "redirect:/login";
         }
+        */
 
         model.addAttribute("user", user);
-        return "user/event";
+        return "board/event";
     }
+
+    @GetMapping("/user/event/add")
+    public String dispEventWrite(@AuthenticationPrincipal MemberUser user, Model model) {
+
+        /* 임시로 해제했어요 - 호준
+        if (user == null) {
+            return "redirect:/login";
+        }
+        */
+
+        model.addAttribute("user", user);
+        return "board/eventadd";
+    }
+
 
     @GetMapping("/user/notice")
     public String dispNotice(@AuthenticationPrincipal MemberUser user, Model model) {

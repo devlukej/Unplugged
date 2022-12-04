@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="kr" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Main</title>
+  <link rel="stylesheet" th:href="@{/css/eventadd.css}">
+</head>
+<body>
+<!-- HEADER -->
+<div th:insert="common/header.html" class="header"></div>
+<div class="form">
+  <div class="empty"></div>
+  <div class="idform">
+    <div class="text"><label>행사일정</label></div>
+    <form action="/login" method="post">
+      <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+      <div class="loginbox">
+        <div class="idbox">
+          <input type="text" class="textarea" name="id" placeholder="내용을 입력해주세요">
+        </div>
+      </div>
+      <div class="check">
+        <label><input type="checkbox" class="keepLogin" name="showMainscreen">메인화면 노출</label>
+        <label><input type="checkbox" class="keepLogin" name="showPush">푸시 알림</label>
+      </div>
+      <div class="btn">
+        <button type="submit">글쓰기</button>
+      </div>
+    </form>
+<!--    <div class="btn">-->
+<!--      <button onclick="location.href='/signup'">회원가입</button>-->
+<!--    </div>-->
+  </div>
+  <div class="empty"></div>
+</div>
+<!-- FOOTER -->
+<div th:insert="common/footer.html" class="footer"></div>
+<script>
+  document.getElementById("title").innerText = "로그인";
+</script>
+</body>
+</html>

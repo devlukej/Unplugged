@@ -21,9 +21,9 @@ spring:
       format_sql: false
       ddl-auto: update
     defer-datasource-initialization: true
-  config:
-    activate:
-      on-profile: dev
+#  config:
+#    activate:
+#      on-profile: dev
 
 
 logging:
