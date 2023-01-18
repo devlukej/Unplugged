@@ -195,10 +195,14 @@ public class UserService implements UserDetailsService {
         List<GrantedAuthority> authorities = new ArrayList<>();
 
 
-        if (("간부").equals(userEntity.getPosition())) {
+        if (("1").equals(userEntity.getState()) && ("간부").equals(userEntity.getPosition())) {
             authorities.add(new SimpleGrantedAuthority(Role.MANAGER.getValue()));
-        } else {
+        } else if (("1").equals(userEntity.getState()) && ("동아리원").equals(userEntity.getPosition())) {
             authorities.add(new SimpleGrantedAuthority(Role.USER.getValue()));
+        } else if (("2").equals(userEntity.getState())) {
+            authorities.add(new SimpleGrantedAuthority(Role.GUEST.getValue()));
+        } else {
+            authorities.add(new SimpleGrantedAuthority(Role.GUEST.getValue()));
         }
 
         return new MemberUser(userEntity.getId(), userEntity.getPw(), authorities, userEntity);

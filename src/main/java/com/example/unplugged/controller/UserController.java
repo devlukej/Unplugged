@@ -112,10 +112,10 @@ public class UserController {
     @GetMapping("/admin/userJoin")
     public String dispUserJoin(@AuthenticationPrincipal MemberUser user, Model model, @RequestParam(value = "page", defaultValue = "1") Integer pageNum) {
 
-//        if (user == null) {
-//
-//            return "redirect:/login";
-//        }
+        if (user == null) {
+
+            return "redirect:/login";
+        }
 
         List<UserDto> userList = userService.getUserlist(pageNum);
         Integer[] pageList = userService.getPageList(pageNum);
@@ -130,10 +130,10 @@ public class UserController {
     @GetMapping("/admin/userList")
     public String dispUserList(@AuthenticationPrincipal MemberUser user, Model model, @RequestParam(value = "page", defaultValue = "1") Integer pageNum) {
 
-//        if (user == null) {
-//
-//            return "redirect:/login";
-//        }
+        if (user == null) {
+
+            return "redirect:/login";
+        }
 
         List<UserDto> userList = userService.getUserlist(pageNum);
         Integer[] pageList = userService.getPageList(pageNum);

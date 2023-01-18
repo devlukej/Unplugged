@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -50,11 +51,15 @@ public class UserEntity extends TimeEntity {
     @Column(length = 20)
     private String birthday;
 
-    private Boolean state;
+    @ColumnDefault("0")
+    @Column(length = 20
+    //        , columnDefinition = "string default 0"
+    )
+    private String state;
 
 
     @Builder
-    public UserEntity(String id, String pw, String name, String phone, String studentNum, String major, String year, String session, String position, String gender, Boolean state, String birthday) {
+    public UserEntity(String id, String pw, String name, String phone, String studentNum, String major, String year, String session, String position, String gender, String state, String birthday) {
         this.id = id;
         this.pw = pw;
         this.name = name;
