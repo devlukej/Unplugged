@@ -53,6 +53,29 @@ public class UserService implements UserDetailsService {
     }
 
     @javax.transaction.Transactional
+    public List<UserDto> getJoinUserlist(Integer pageNum) {
+        Page<UserEntity> page = userRepository.findAll(PageRequest.of(pageNum - 1, PAGE_POST_COUNT, Sort.by(Sort.Direction.DESC, "date")));
+
+        List<UserEntity> userEntities = page.getContent();
+        List<UserDto> userDtoList = new ArrayList<>();
+
+        for (UserEntity userEntity : userEntities) {
+            UserDto userDTO = UserDto.builder()
+                    .id(userEntity.getId())
+                    .name(userEntity.getName())
+                    .phone(userEntity.getPhone())
+                    .year(userEntity.getYear())
+                    .session(userEntity.getSession())
+                    .position(userEntity.getPosition())
+                    .build();
+
+            userDtoList.add(userDTO);
+        }
+
+        return userDtoList;
+    }
+
+    @javax.transaction.Transactional
     public Long getUserCount() {
         return userRepository.count();
     }
@@ -179,6 +202,7 @@ public class UserService implements UserDetailsService {
     public String joinUser(UserDto userDto) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         userDto.setPw(passwordEncoder.encode(userDto.getPw()));
+        userDto.setState("0");
 
         return userRepository.save(userDto.toEntity()).getId();
     }

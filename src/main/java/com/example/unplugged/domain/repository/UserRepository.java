@@ -11,6 +11,8 @@ public interface UserRepository extends JpaRepository<UserEntity, String> {
 
     List<UserEntity> findAll();
 
+    List<UserEntity> findByState(String state);
+
     List<UserEntity> findByNameContaining(String nameKeyword);
 
     List<UserEntity> findByYearContaining(String yearKeyword);

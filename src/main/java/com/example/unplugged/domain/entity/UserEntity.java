@@ -51,10 +51,7 @@ public class UserEntity extends TimeEntity {
     @Column(length = 20)
     private String birthday;
 
-    @ColumnDefault("0")
-    @Column(length = 20
-    //        , columnDefinition = "string default 0"
-    )
+    @Column(length = 20)
     private String state;
 
 
