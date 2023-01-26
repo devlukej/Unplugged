@@ -21,6 +21,10 @@ spring:
       format_sql: false
       ddl-auto: update
     defer-datasource-initialization: true
+  http:
+    multipart:
+      maxFileSize: 10MB
+      maxRequestSize: 10MB
 #  config:
 #    activate:
 #      on-profile: dev
@@ -35,5 +39,18 @@ logging:
           descriptor:
             sql:
               BasicBinder: TRACE
+
+
+cloud:
+  aws:
+    credentials:
+      accessKey: AKIAVIUCCJXTWKCZD4P5
+      secretKey: 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
+    s3:
+      bucket: chanho
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
 
 

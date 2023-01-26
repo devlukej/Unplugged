@@ -112,12 +112,6 @@
     </div>
 </div>
 
-<div class="list">
-            <span th:each="pageNum : ${pageList}" th:inline="text">
-                <a id="page" th:href="@{'/admin/userList?page=' + ${pageNum}}">[[${pageNum}]]</a>
-            </span>
-</div>
-
 <form action="/admin/userList/nameKeyword" method="GET" id="frm">
     <div class="search">
         <select id="sort" name="sort" class="sort" onchange="ChangeSelect()">

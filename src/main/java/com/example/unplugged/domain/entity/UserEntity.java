@@ -4,12 +4,9 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
@@ -54,9 +51,11 @@ public class UserEntity extends TimeEntity {
     @Column(length = 20)
     private String state;
 
+    @Column(columnDefinition = "TEXT")
+    private String filePath;
 
     @Builder
-    public UserEntity(String id, String pw, String name, String phone, String studentNum, String major, String year, String session, String position, String gender, String state, String birthday) {
+    public UserEntity(String id, String pw, String name, String phone, String studentNum, String major, String year, String session, String position, String gender, String state, String birthday, String filePath) {
         this.id = id;
         this.pw = pw;
         this.name = name;
@@ -69,6 +68,7 @@ public class UserEntity extends TimeEntity {
         this.gender = gender;
         this.birthday = birthday;
         this.state = state;
+        this.filePath = filePath;
 
     }
 }

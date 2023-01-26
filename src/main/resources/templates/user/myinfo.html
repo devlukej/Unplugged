@@ -12,12 +12,15 @@
 
 <div class="body">
     <div class="left">
-        <div class="profile-info">
-            <img class="check" src="/img/profile.png" width="104" height="104"/>
+        <div class="profile-info" th:each="gallery : ${galleryList}">
+            <img class="check" src="${user.imgFullPath}" width="104" height="104"/>
         </div>
-        <div class="profile-change">
-            <button class="change-btn">사진 변경</button>
-        </div>
+        <form th:action="@{/myinfo}" method="post" enctype="multipart/form-data">
+            <div class="profile-change">
+                <input type="file" name="file">
+                <button class="change-btn">사진 변경</button>
+            </div>
+        </form>
     </div>
     <div class="right">
         <div class="info">

@@ -39,9 +39,12 @@ public class UserDto {
     //    @NotBlank(message = "생년월일은 필수 입력 값입니다.")
     private String birthday;
 
-
     private String state;
     private LocalDate date;
+
+    private String filePath;
+
+    private String imgFullPath;
 
     public UserEntity toEntity() {
         return UserEntity.builder()
@@ -57,11 +60,12 @@ public class UserDto {
                 .gender(gender)
                 .state(state)
                 .birthday(birthday)
+                .filePath(filePath)
                 .build();
     }
 
     @Builder
-    public UserDto(String id, String pw, String name, String phone, String studentNum, String major, String year, String session, String position, String gender, String state, String birthday, LocalDate date) {
+    public UserDto(String id, String pw, String name, String phone, String studentNum, String major, String year, String session, String position, String gender, String state, String birthday, LocalDate date , String filePath , String imgFullPath) {
         this.id = id;
         this.pw = pw;
         this.name = name;
@@ -75,6 +79,7 @@ public class UserDto {
         this.birthday = birthday;
         this.state = state;
         this.date = date;
-
+        this.filePath = filePath;
+        this.imgFullPath = imgFullPath;
     }
 }

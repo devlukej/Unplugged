@@ -8,7 +8,12 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import com.example.unplugged.service.S3Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
@@ -17,6 +22,7 @@ import java.util.Objects;
 @AllArgsConstructor
 public class UserController {
     private UserService userService;
+    private S3Service s3Service;
 
     @GetMapping("/")
     public String list(@AuthenticationPrincipal MemberUser user, Model model) {
@@ -66,8 +72,23 @@ public class UserController {
             return "redirect:/login";
         }
 
+        List<UserDto> userDtoList = userService.getList();
+
+        model.addAttribute("userList", userDtoList);
         model.addAttribute("user", user);
         return "user/myinfo";
+    }
+
+    @PostMapping("/myinfo")
+    public String dispMyInfo(@AuthenticationPrincipal MemberUser user, Model model , UserDto userDto, MultipartFile file) throws IOException {
+
+        String imgPath = s3Service.upload(userDto.getFilePath(), file);
+        userDto.setFilePath(imgPath);
+        userService.savePost(userDto);
+
+
+        model.addAttribute("user", user);
+        return "redirect:/myinfo";
     }
 
     @GetMapping("/user/event")
@@ -114,31 +135,28 @@ public class UserController {
             return "redirect:/login";
         }
 
-        List<UserDto> userList = userService.getUserlist(pageNum);
-        Integer[] pageList = userService.getPageList(pageNum);
+        List<UserDto> userList = userService.getJoinUserlist("0");
         model.addAttribute("user", user);
 
+
         model.addAttribute("userList", userList);
-        model.addAttribute("pageList", pageList);
 
         return "admin/userJoin";
     }
 
     @GetMapping("/admin/userList")
-    public String dispUserList(@AuthenticationPrincipal MemberUser user, Model model, @RequestParam(value = "page", defaultValue = "1") Integer pageNum) {
+    public String dispUserList(@AuthenticationPrincipal MemberUser user, Model model) {
 
         if (user == null) {
 
             return "redirect:/login";
         }
 
-        List<UserDto> userList = userService.getUserlist(pageNum);
-        Integer[] pageList = userService.getPageList(pageNum);
-
+        List<UserDto> userList = userService.getPassUserlist("1");
         model.addAttribute("user", user);
 
+
         model.addAttribute("userList", userList);
-        model.addAttribute("pageList", pageList);
 
         return "admin/userList";
     }

@@ -29,47 +29,60 @@ public class UserService implements UserDetailsService {
     private static final int BLOCK_PAGE_NUM_COUNT = 10; // 블럭에 존재하는 페이지 번호 수
     private static final int PAGE_POST_COUNT = 15; // 한 페이지에 존재하는 게시글 수
 
-    @javax.transaction.Transactional
-    public List<UserDto> getUserlist(Integer pageNum) {
-        Page<UserEntity> page = userRepository.findAll(PageRequest.of(pageNum - 1, PAGE_POST_COUNT, Sort.by(Sort.Direction.DESC, "date")));
+//    @javax.transaction.Transactional
+//    public List<UserDto> getUserlist(Integer pageNum) {
+//        Page<UserEntity> page = userRepository.findAll(PageRequest.of(pageNum - 1, PAGE_POST_COUNT, Sort.by(Sort.Direction.DESC, "date")));
+//
+//        List<UserEntity> userEntities = page.getContent();
+//        List<UserDto> userDtoList = new ArrayList<>();
+//
+//        for (UserEntity userEntity : userEntities) {
+//            UserDto userDTO = UserDto.builder()
+//                    .id(userEntity.getId())
+//                    .name(userEntity.getName())
+//                    .phone(userEntity.getPhone())
+//                    .year(userEntity.getYear())
+//                    .session(userEntity.getSession())
+//                    .position(userEntity.getPosition())
+//                    .build();
+//
+//            userDtoList.add(userDTO);
+//        }
+//
+//        return userDtoList;
+//    }
 
-        List<UserEntity> userEntities = page.getContent();
+    @javax.transaction.Transactional
+    public List<UserDto> getPassUserlist(String state) {
+
+
+        List<UserEntity> userEntities = userRepository.findByState("1");
+
         List<UserDto> userDtoList = new ArrayList<>();
 
-        for (UserEntity userEntity : userEntities) {
-            UserDto userDTO = UserDto.builder()
-                    .id(userEntity.getId())
-                    .name(userEntity.getName())
-                    .phone(userEntity.getPhone())
-                    .year(userEntity.getYear())
-                    .session(userEntity.getSession())
-                    .position(userEntity.getPosition())
-                    .build();
+        if (userEntities.isEmpty()) return userDtoList;
 
-            userDtoList.add(userDTO);
+
+        for (UserEntity userEntity : userEntities) {
+            userDtoList.add(this.convertEntityToDto(userEntity));
         }
 
         return userDtoList;
     }
 
     @javax.transaction.Transactional
-    public List<UserDto> getJoinUserlist(Integer pageNum) {
-        Page<UserEntity> page = userRepository.findAll(PageRequest.of(pageNum - 1, PAGE_POST_COUNT, Sort.by(Sort.Direction.DESC, "date")));
+    public List<UserDto> getJoinUserlist(String state) {
 
-        List<UserEntity> userEntities = page.getContent();
+
+        List<UserEntity> userEntities = userRepository.findByState("0");
+
         List<UserDto> userDtoList = new ArrayList<>();
 
-        for (UserEntity userEntity : userEntities) {
-            UserDto userDTO = UserDto.builder()
-                    .id(userEntity.getId())
-                    .name(userEntity.getName())
-                    .phone(userEntity.getPhone())
-                    .year(userEntity.getYear())
-                    .session(userEntity.getSession())
-                    .position(userEntity.getPosition())
-                    .build();
+        if (userEntities.isEmpty()) return userDtoList;
 
-            userDtoList.add(userDTO);
+
+        for (UserEntity userEntity : userEntities) {
+            userDtoList.add(this.convertEntityToDto(userEntity));
         }
 
         return userDtoList;
@@ -188,13 +201,31 @@ public class UserService implements UserDetailsService {
     private UserDto convertEntityToDto(UserEntity userEntity) {
 
         return UserDto.builder()
+                .id(userEntity.getId())
                 .name(userEntity.getName())
                 .phone(userEntity.getPhone())
                 .year(userEntity.getYear())
                 .session(userEntity.getSession())
                 .position(userEntity.getPosition())
+                .filePath(userEntity.getFilePath())
+                .imgFullPath("https://" + S3Service.CLOUD_FRONT_DOMAIN_NAME + "/" + userEntity.getFilePath())
 
                 .build();
+    }
+
+    public void savePost(UserDto userDto) {
+        userRepository.save(userDto.toEntity());
+    }
+
+    public List<UserDto> getList() {
+        List<UserEntity> userEntityList = userRepository.findAll();
+        List<UserDto> userDtoList = new ArrayList<>();
+
+        for (UserEntity userEntity : userEntityList) {
+            userDtoList.add(convertEntityToDto(userEntity));
+        }
+
+        return userDtoList;
     }
 
     //비밀번호 암호화
