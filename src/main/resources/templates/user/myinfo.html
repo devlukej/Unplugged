@@ -15,9 +15,12 @@
         <div class="profile-info" th:each="gallery : ${galleryList}">
             <img class="check" src="${user.imgFullPath}" width="104" height="104"/>
         </div>
-        <form th:action="@{/myinfo}" method="post" enctype="multipart/form-data">
+        <img id="target_img" src="/img/info_profile.png" width="104" height="104">
+        <form name="signform" th:action="@{/myinfo}" method="post" enctype="multipart/form-data"
+              action="./design_update.htm">
             <div class="profile-change">
-                <input type="file" name="file">
+                <input type="file" id="file" name="file" style="display:none;" onchange="changeValue(this)">
+                <input type="hidden" name="target_url">
                 <button class="change-btn">사진 변경</button>
             </div>
         </form>
@@ -77,6 +80,11 @@
 <div th:insert="common/footer.html" class="footer"></div>
 <script>
 
+    $('#target_img').click(function (e) {
+        document.signform.target_url.value = document.getElementById('target_img').src;
+        e.preventDefault();
+        $('#file').click();
+    });
 </script>
 </body>
 </html>
