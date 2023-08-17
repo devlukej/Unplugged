@@ -38,3 +38,6 @@ RUN chmod 700 .ssh
 RUN touch .ssh/authorized_keys
 RUN mkdir ~/spring_project/target
 RUN mkdir ~/spring_project/logs
+RUN mkdir ~/.ssh
+RUN touch ~/.ssh/authorized_keys
+RUN echo  ~/.ssh/authorized_keys <
