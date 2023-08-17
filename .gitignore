@@ -4,9 +4,9 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
-/.jenkins/
-/spring_server/
-/jenkins/
+/.jenkins/Jenkinsfile
+/spring_server/Dockerfile
+/jenkins/Dockerfile
 
 ### STS ###
 .apt_generated
