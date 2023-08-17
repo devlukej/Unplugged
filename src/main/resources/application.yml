@@ -41,16 +41,3 @@ logging:
               BasicBinder: TRACE
 
 
-cloud:
-  aws:
-    credentials:
-      accessKey: AKIAVIUCCJXTWKCZD4P5
-      secretKey: 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
-    s3:
-      bucket: chanho
-    region:
-      static: ap-northeast-2
-    stack:
-      auto: false
-
-
