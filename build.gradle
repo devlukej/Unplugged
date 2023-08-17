@@ -9,7 +9,7 @@ jar {
 }
 
 group = 'com.example'
-version = '0.0.2-SNAPSHOT'
+version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 configurations {
@@ -25,21 +25,33 @@ repositories {
 dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'mysql:mysql-connector-java:8.0.33'
+
+	implementation 'mysql:mysql-connector-java'
+
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
 	implementation 'org.springframework.boot:spring-boot-starter'
+
 	implementation 'org.springframework.boot:spring-boot-starter-security'
+
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	implementation group: 'org.javassist', name: 'javassist', version: '3.15.0-GA'
+
+	implementation group: 'org.javassist', name: 'javassist', version: '3.27.0-GA'
+
+	compileOnly 'javax.xml.bind:jaxb-api:2.3.0'
 
 	compileOnly 'org.springframework.boot:spring-boot-devtools'
+
 	compileOnly 'org.projectlombok:lombok'
 
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
 	runtimeOnly 'mysql:mysql-connector-java'
+
 	runtimeOnly 'com.h2database:h2'
 
 	annotationProcessor 'org.projectlombok:lombok'
@@ -54,9 +66,6 @@ dependencies {
 	implementation group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.12.39'
 	implementation group: 'com.amazonaws', name: 'aws-java-sdk-core', version: '1.12.39'
 	implementation group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.12.39'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
 }
 
 tasks.named('test') {
