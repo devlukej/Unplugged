@@ -208,7 +208,6 @@ public class UserService implements UserDetailsService {
                 .session(userEntity.getSession())
                 .position(userEntity.getPosition())
                 .filePath(userEntity.getFilePath())
-                .imgFullPath("https://" + S3Service.CLOUD_FRONT_DOMAIN_NAME + "/" + userEntity.getFilePath())
 
                 .build();
     }

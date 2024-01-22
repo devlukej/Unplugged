@@ -37,21 +37,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/**").hasRole("MANAGER")
                 .antMatchers("/user/**","/myinfo").hasAnyRole("MANAGER","USER")
                 .antMatchers("/","/login","/signup").permitAll()
-                .and() // 로그인 설정
+                .and()
                 .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/")
                 .usernameParameter("id")
                 .passwordParameter("pw")
                 .permitAll()
-                .and() // 로그아웃 설정
+                .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/")
                 .invalidateHttpSession(true)
                 .and()
-                // 403 예외처리 핸들링
-                .exceptionHandling().accessDeniedPage("/denied");
+                .exceptionHandling().accessDeniedPage("/denied")
+                .and()
+                .csrf()
+                .requireCsrfProtectionMatcher(new AntPathRequestMatcher("/login", "POST")) // CSRF 검사를 /login 경로의 POST 요청에만 적용
+                .and()
+                .authorizeRequests()
+                .antMatchers("/css/**", "/js/**", "/img/**", "/lib/**").permitAll(); // 정적 자원 무시
     }
 
     @Override

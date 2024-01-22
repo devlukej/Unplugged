@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Luke</title>
+    <link rel="stylesheet" th:href="@{/css/notice/n-update.css}">
+</head>
+<body>
+<!-- HEADER -->
+<div th:insert="common/header.html" class="header"></div>
+
+<div class="view">
+    <div class="enter">
+        <form action="/user/notice/update" method="post" name="updateForm">
+            <div class="detail">
+                <div class="detail-header">
+                    <input type="hidden" name="id" th:value="${noticeUpdate.id}">
+                    <div class="write">
+                        <div>작성자&nbsp;:&nbsp;</div>
+                        <div th:text="${noticeUpdate.noticeWriter}"></div>
+                        <input type="hidden" name="noticeWriter" th:value="${noticeUpdate.noticeWriter}" readonly>
+                    </div>
+                    <div class="time">
+                        <div class="time-center" th:text="${noticeUpdate.noticeCreatedTime}"></div>
+                    </div>
+                    <div class="inquiry">
+                        <div>조회&nbsp;:&nbsp;</div>
+                        <div th:text="${noticeUpdate.noticeHits}"></div>
+                    </div>
+                </div>
+                <div class="detail-body">
+                    <div class="detail-title">
+                        <input type="text" name="noticeTitle" class="noticeTitle" th:value="${noticeUpdate.noticeTitle}">
+                    </div>
+                </div>
+                <div class="detail-footer">
+                    <div class="detail-content">
+                        <textarea name="noticeContents" cols="30" rows="10" class="noticeContents"
+                                  th:text="${noticeUpdate.noticeContents}"></textarea>
+                    </div>
+                </div>
+                <input type="hidden" name="noticeHits" th:value="${noticeUpdate.noticeHits}">
+            </div>
+            <button type="submit">수정하기</button>
+        </form>
+    </div>
+</div>
+<script>
+    document.getElementById("title").innerText = "공지사항";
+</script>
+</body>
+</html>

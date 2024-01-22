@@ -1,7 +1,9 @@
 package com.example.unplugged.controller;
 
+import com.example.unplugged.dto.NoticeDTO;
 import com.example.unplugged.dto.UserDto;
 import com.example.unplugged.service.MemberUser;
+import com.example.unplugged.service.NoticeService;
 import com.example.unplugged.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -9,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import com.example.unplugged.service.S3Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -21,13 +22,20 @@ import java.util.Objects;
 @Controller
 @AllArgsConstructor
 public class UserController {
+
     private UserService userService;
-    private S3Service s3Service;
+
+    private NoticeService noticeService;
 
     @GetMapping("/")
     public String list(@AuthenticationPrincipal MemberUser user, Model model) {
 
+        List<NoticeDTO> latestNotices = noticeService.findLatestNotices(5);
+
         model.addAttribute("user", user);
+
+        model.addAttribute("noticeList", latestNotices);
+
         return "board/main";
     }
 
@@ -80,10 +88,8 @@ public class UserController {
     }
 
     @PostMapping("/myinfo")
-    public String dispMyInfo(@AuthenticationPrincipal MemberUser user, Model model , UserDto userDto, MultipartFile file) throws IOException {
+    public String dispMyInfo(@AuthenticationPrincipal MemberUser user, Model model , UserDto userDto) throws IOException {
 
-        String imgPath = s3Service.upload(userDto.getFilePath(), file);
-        userDto.setFilePath(imgPath);
         userService.savePost(userDto);
 
 
@@ -114,19 +120,6 @@ public class UserController {
         return "board/eventadd";
     }
 
-
-    @GetMapping("/user/notice")
-    public String dispNotice(@AuthenticationPrincipal MemberUser user, Model model) {
-
-        if (user == null) {
-
-            return "redirect:/login";
-        }
-
-        model.addAttribute("user", user);
-        return "user/notice";
-    }
-
     @GetMapping("/admin/userJoin")
     public String dispUserJoin(@AuthenticationPrincipal MemberUser user, Model model, @RequestParam(value = "page", defaultValue = "1") Integer pageNum) {
 
@@ -136,6 +129,7 @@ public class UserController {
         }
 
         List<UserDto> userList = userService.getJoinUserlist("0");
+
         model.addAttribute("user", user);
 
 

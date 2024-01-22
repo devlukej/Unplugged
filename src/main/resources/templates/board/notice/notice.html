@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luke</title>
+    <link rel="stylesheet" th:href="@{/css/notice/notice.css}">
+</head>
+<body>
+<!-- HEADER -->
+<div th:insert="common/header.html" class="header"></div>
+
+<div class="view">
+    <div class="enter">
+        <div class="search">
+            <form action="/user/notice/noticeTitle" method="GET" id="frm">
+                <div class="search">
+                    <select id="sort" name="sort" class="sort" onchange="ChangeSelect()">
+                        <option name="noticeTitle" id="noticeTitle" value="noticeTitle">제목</option>
+                        <option name="noticeContents" id="noticeContents" value="noticeContents">내용</option>
+                    </select>
+                    <input class="size" name="noticeTitle" id="keyword" type="text">
+                    <button class="search-btn">검색</button>
+                </div>
+            </form>
+        </div>
+        <div class="bar">
+            <div class="btn">
+                <button class="write-btn" th:if="${user != null and user.userEntity != null and user.userEntity.state == '1'}" onclick="saveReq()">글쓰기</button>
+            </div>
+        </div>
+        <div th:each="notice: ${noticeList}">
+            <div class="write">
+                <div class="write-title">
+                    <a th:href="@{|/user/notice/${notice.id}|(page=${noticeList.number + 1})}"
+                       th:text="${notice.noticeTitle}"></a>
+                </div>
+                <div class="write-content">
+                    <div th:text="${notice.noticeContents}"></div>
+                </div>
+                <div class="write-bottom">
+                    <div class="write-left">
+                        <div class="user-name">
+                            <div th:text="${notice.noticeWriter}"></div>
+                        </div>
+                        ㆍ
+                        <div class="write-time">
+                            <div th:text="*{#temporals.format(notice.noticeCreatedTime, 'yyyy-MM-dd HH:mm:ss')}"></div>
+                        </div>
+
+                    </div>
+                    <div class="write-right">
+                        <div class="right-box">
+                            <div class="inquiry">
+                                조회&nbsp;<div th:text="${notice.noticeHits}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <div class="paging">
+                <a th:href="${noticeList.hasPrevious()} ? @{/user/notice/(page=${noticeList.number})} : '#'">이전</a>
+                <span th:each="page: ${#numbers.sequence(startPage, endPage)}">
+                <span th:if="${page == noticeList.number + 1}" th:text="${page}"></span>
+                <span th:unless="${page == noticeList.number + 1}">
+                    <a th:href="@{/user/notice/(page=${page})}" th:text="${page}"></a>
+                </span>
+            </span>
+
+                <a th:href="${noticeList.hasNext()} ? @{/user/notice/(page=${noticeList.number + 2})} : '#'">다음</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    function ChangeSelect() {
+
+        let langSelect = document.getElementById("sort");
+
+        // select element에서 선택된 option의 value가 저장된다.
+        let selectValue = langSelect.options[langSelect.selectedIndex].value;
+
+        document.getElementById("keyword").setAttribute("name", selectValue);
+        document.getElementById("frm").setAttribute("action", "/user/notice/" + selectValue);
+
+    }
+
+    const saveReq = () => {
+        location.href = "/user/notice/save";
+    }
+
+</script>
+<script>
+    document.getElementById("title").innerText = "공지사항";
+</script>
+</body>
+</html>

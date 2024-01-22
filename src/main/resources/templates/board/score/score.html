@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luke</title>
+    <link rel="stylesheet" th:href="@{/css/score/score.css}">
+</head>
+<body>
+<!-- HEADER -->
+<div th:insert="common/header.html" class="header"></div>
+
+<div class="view">
+    <div class="enter">
+        <div class="search">
+            <form action="/user/score/scoreTitle" method="GET" id="frm">
+                <div class="search">
+                    <select id="sort" name="sort" class="sort" onchange="ChangeSelect()">
+                        <option name="scoreTitle" id="scoreTitle" value="scoreTitle">제목</option>
+                        <option name="scoreContents" id="scoreContents" value="scoreContents">내용</option>
+                    </select>
+                    <input class="size" name="scoreTitle" id="keyword" type="text">
+                    <button class="search-btn">검색</button>
+                </div>
+            </form>
+        </div>
+        <div class="bar">
+            <div class="btn">
+                <button class="write-btn" th:if="${user != null and user.userEntity != null and user.userEntity.state == '1'}" onclick="saveReq()">글쓰기</button>
+            </div>
+        </div>
+        <div th:each="score: ${scoreList}">
+            <div class="write">
+                <div class="write-title">
+                    <a th:href="@{|/user/score/${score.id}|(page=${scoreList.number + 1})}"
+                       th:text="${score.scoreTitle}"></a>
+                </div>
+                <div class="write-content">
+                    <div th:text="${score.scoreContents}"></div>
+                </div>
+                <div class="write-bottom">
+                    <div class="write-left">
+                        <div class="user-name">
+                            <div th:text="${score.scoreWriter}"></div>
+                        </div>
+                        ㆍ
+                        <div class="write-time">
+                            <div th:text="*{#temporals.format(score.scoreCreatedTime, 'yyyy-MM-dd HH:mm:ss')}"></div>
+                        </div>
+
+                    </div>
+                    <div class="write-right">
+                        <div class="right-box">
+                            <div class="inquiry">
+                                조회&nbsp;<div th:text="${score.scoreHits}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <div class="paging">
+                <a th:href="${scoreList.hasPrevious()} ? @{/user/score/(page=${scoreList.number})} : '#'">이전</a>
+                <span th:each="page: ${#numbers.sequence(startPage, endPage)}">
+                <span th:if="${page == scoreList.number + 1}" th:text="${page}"></span>
+                <span th:unless="${page == scoreList.number + 1}">
+                    <a th:href="@{/user/score/(page=${page})}" th:text="${page}"></a>
+                </span>
+            </span>
+
+                <a th:href="${scoreList.hasNext()} ? @{/user/score/(page=${scoreList.number + 2})} : '#'">다음</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    function ChangeSelect() {
+
+        let langSelect = document.getElementById("sort");
+
+        // select element에서 선택된 option의 value가 저장된다.
+        let selectValue = langSelect.options[langSelect.selectedIndex].value;
+
+        document.getElementById("keyword").setAttribute("name", selectValue);
+        document.getElementById("frm").setAttribute("action", "/user/score/" + selectValue);
+
+    }
+
+    const saveReq = () => {
+        location.href = "/user/score/save";
+    }
+
+</script>
+<script>
+    document.getElementById("title").innerText = "악보공유";
+</script>
+</body>
+</html>

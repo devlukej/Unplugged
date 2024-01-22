@@ -6,72 +6,7 @@
     <link rel="stylesheet" th:href="@{/css/userJoin.css}">
 </head>
 <body>
-<div class="info_modal">
-    <div class="modal-top">
-        <div class="modal-title">상세보기</div>
-    </div>
-    <div class="modal-body">
-        <div class="left">
-            <div class="info">
-                <p class="info_text">이름</p>
-                <p class="info_data">조찬호</p>
-            </div>
-            <div class="info">
-                <p class="info_text">성별</p>
-                <p class="info_data">남</p>
-            </div>
-            <div class="info">
-                <p class="info_text">아이디</p>
-                <p class="info_data">admin</p>
-            </div>
-            <div class="info">
-                <p class="info_text">학과</p>
-                <p class="info_data">소프트웨어학과</p>
-            </div>
-            <div class="info">
-                <p class="info_text">학번</p>
-                <p class="info_data">20181621</p>
-            </div>
-            <div class="info">
-                <p class="info_text">연락처</p>
-                <p class="info_data">010-4542-7544</p>
-            </div>
-            <div class="info">
-                <p class="info_text">기수</p>
-                <p class="info_data">U26</p>
-            </div>
-            <div class="info">
-                <p class="info_text">세션</p>
-                <p class="info_data">드럼</p>
-            </div>
-            <div class="info">
-                <p class="info_text">직책</p>
-                <p class="info_data">간부</p>
-            </div>
-            <div class="info">
-                <p class="info_text">생년월일</p>
-                <p class="info_data">1999-02-26</p>
-            </div>
-            <div class="info">
-                <p class="info_text">가입일</p>
-                <p class="info_data">2022-11-10</p>
-            </div>
-        </div>
-        <div class="right">
-            <div class="profile-userList">
-                <img class="check" src="/img/profile.png" width="120" height="120"/>
-            </div>
-            <div class="profile-change">
-                <p id="profile-tag">프로필 사진</p>
-            </div>
-        </div>
-    </div>
-    <div class="modal-foot">
-        <a class="modal-btn" id="modal-btn"><label class="modal-check">뒤로가기</label></a>
-    </div>
-</div>
 
-<div class="modal2">
 </div>
 <!-- HEADER -->
 <div th:insert="common/header.html" class="header"></div>
@@ -88,6 +23,9 @@
                 <th class="join">승인</th>
             </tr>
             <tr th:each="user : ${userList}">
+                <td class="id" hidden="hidden">
+                    <span hidden="hidden" th:text="${user.id}" id="id"></span>
+                </td>
                 <td class="name">
                     <span th:text="${user.name}" id="name"></span>
                 </td>
@@ -113,9 +51,10 @@
 <!-- FOOTER -->
 <div th:insert="common/footer.html" class="footer"></div>
 <script>
+
     document.getElementById("title").innerText = "가입승인";
 
-    document.getElementById("phone").onclick = function(){
+    document.getElementById("phone").onclick = function () {
         // div 내부 텍스트 취득
         const valOfDIV = document.getElementById("phone").innerText;
 

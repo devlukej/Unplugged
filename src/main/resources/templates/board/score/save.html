@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luke</title>
+    <link rel="stylesheet" th:href="@{/css/score/s-save.css}">
+</head>
+<body>
+<!-- HEADER -->
+<div th:insert="common/header.html" class="header"></div>
+
+<div class="view">
+    <div class="enter">
+
+        <form action="/user/score/save" method="post" enctype="multipart/form-data">
+            <div class="save">
+                <div class="save-header">
+                    <div class="write">
+                        <div class="save-name">글쓰기</div>
+                    </div>
+                </div>
+                <div class="save-body">
+                    <div class="save-title">
+                        <input class="scoreTitle" type="text" name="scoreTitle">
+                    </div>
+                </div>
+                <div class="save-footer">
+                    <div class="save-content">
+                        <textarea class="scoreContents" name="scoreContents" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+            </div>
+            <button type="submit">작성하기</button>
+        </form>
+    </div>
+</div>
+<script>
+    document.getElementById("title").innerText = "악보공유";
+</script>
+</body>
+</html>

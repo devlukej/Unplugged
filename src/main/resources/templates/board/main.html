@@ -17,11 +17,14 @@
                 <a class="plus" th:href="@{/user/notice}">+ 더보기</a>
             </dt>
             <ul>
-                <li><a href="#" class="main_text"><span>1</span> - now having a board</a></li>
-                <li><a href="#" class="main_text"><span>2</span> - now having a board</a></li>
-                <li><a href="#" class="main_text"><span>3</span> - now having a board</a></li>
-                <li><a href="#" class="main_text"><span>4</span> - now having a board</a></li>
-                <li><a href="#" class="main_text"><span>5</span> - now having a board</a></li>
+                <div class="li" th:each="notice, i : ${noticeList}">
+                    <li>
+                        <a th:href="@{|/user/notice/${notice.id}|}" class="main_text">
+                            <span th:text="${i.index + 1}"></span> - <span class="notice-color"
+                                                                           th:text="${notice.noticeTitle}"></span>
+                        </a>
+                    </li>
+                </div>
             </ul>
         </dl>
     </div>

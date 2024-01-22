@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luke</title>
+    <link rel="stylesheet" th:href="@{/css/suggestion/s-save.css}">
+</head>
+<body>
+<!-- HEADER -->
+<div th:insert="common/header.html" class="header"></div>
+
+<div class="view">
+    <div class="enter">
+
+        <form action="/user/suggestion/save" method="post" enctype="multipart/form-data">
+            <div class="save">
+                <div class="save-header">
+                    <div class="write">
+                        <div class="save-name">글쓰기</div>
+                    </div>
+                </div>
+                <div class="save-body">
+                    <div class="save-title">
+                        <input class="suggestionTitle" type="text" name="suggestionTitle">
+                    </div>
+                </div>
+                <div class="save-footer">
+                    <div class="save-content">
+                        <textarea class="suggestionContents" name="suggestionContents" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+            </div>
+            <button type="submit">작성하기</button>
+        </form>
+    </div>
+</div>
+<script>
+    document.getElementById("title").innerText = "건의사항";
+</script>
+</body>
+</html>

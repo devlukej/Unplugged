@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Luke</title>
+    <link rel="stylesheet" th:href="@{/css/suggestion/s-update.css}">
+</head>
+<body>
+<!-- HEADER -->
+<div th:insert="common/header.html" class="header"></div>
+
+<div class="view">
+    <div class="enter">
+        <form action="/user/suggestion/update" method="post" name="updateForm">
+            <div class="detail">
+                <div class="detail-header">
+                    <input type="hidden" name="id" th:value="${suggestionUpdate.id}">
+                    <div class="write">
+                        <div>작성자&nbsp;:&nbsp;</div>
+                        <div th:text="${suggestionUpdate.suggestionWriter}"></div>
+                        <input type="hidden" name="suggestionWriter" th:value="${suggestionUpdate.suggestionWriter}" readonly>
+                    </div>
+                    <div class="time">
+                        <div class="time-center" th:text="${suggestionUpdate.suggestionCreatedTime}"></div>
+                    </div>
+                    <div class="inquiry">
+                        <div>조회&nbsp;:&nbsp;</div>
+                        <div th:text="${suggestionUpdate.suggestionHits}"></div>
+                    </div>
+                </div>
+                <div class="detail-body">
+                    <div class="detail-title">
+                        <input type="text" name="suggestionTitle" class="suggestionTitle" th:value="${suggestionUpdate.suggestionTitle}">
+                    </div>
+                </div>
+                <div class="detail-footer">
+                    <div class="detail-content">
+                        <textarea name="suggestionContents" cols="30" rows="10" class="suggestionContents"
+                                  th:text="${suggestionUpdate.suggestionContents}"></textarea>
+                    </div>
+                </div>
+                <input type="hidden" name="suggestionHits" th:value="${suggestionUpdate.suggestionHits}">
+            </div>
+            <button type="submit">수정하기</button>
+        </form>
+    </div>
+</div>
+<script>
+    document.getElementById("title").innerText = "건의사항";
+</script>
+</body>
+</html>

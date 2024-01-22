@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Luke</title>
+    <link rel="stylesheet" th:href="@{/css/score/s-detail.css}">
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- HEADER -->
+<div th:insert="common/header.html" class="header"></div>
+
+<div class="view">
+    <div class="enter">
+        <div class="detail">
+            <div class="detail-header">
+                <div class="write">
+                    <div>작성자&nbsp;:&nbsp;</div>
+                    <div th:text="${score.scoreWriter}"></div>
+                </div>
+                <div class="time">
+                    <div class="time-center" th:text="*{#temporals.format(score.scoreCreatedTime,'yyyy-MM-dd HH:mm:ss')}"></div>
+                </div>
+                <div class="inquiry">
+                    <div>조회&nbsp;:&nbsp;</div>
+                    <div th:text="${score.scoreHits}"></div>
+                </div>
+            </div>
+            <div class="detail-btn">
+                <button onclick="listReq()" >목록</button>
+                <button onclick="updateReq()" th:if="${user.userEntity.state == '1'}">수정</button>
+                <button onclick="deleteReq()" th:if="${user.userEntity.state == '1'}">삭제</button>
+            </div>
+            <div class="detail-body">
+                <div class="detail-title">
+                    <div th:text="${score.scoreTitle}"></div>
+                </div>
+            </div>
+            <div class="detail-footer">
+                <div class="detail-content">
+                    <div th:text="${score.scoreContents}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script th:inline="javascript">
+
+    const listReq = () => {
+        console.log("목록 요청");
+        const page = [[${page}]];
+        location.href = "/user/score/?page=" + page;
+    }
+    const updateReq = () => {
+        console.log("수정 요청");
+        const id = [[${score.id}]];
+        location.href = "/user/score/update/" + id;
+    }
+    const deleteReq = () => {
+        console.log("삭제 요청");
+        const id = [[${score.id}]];
+        location.href = "/user/score/delete/" + id;
+    }
+</script>
+<script>
+    document.getElementById("title").innerText = "악보공유";
+</script>
+</html>

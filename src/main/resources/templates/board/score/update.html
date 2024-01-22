@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Luke</title>
+    <link rel="stylesheet" th:href="@{/css/score/s-update.css}">
+</head>
+<body>
+<!-- HEADER -->
+<div th:insert="common/header.html" class="header"></div>
+
+<div class="view">
+    <div class="enter">
+        <form action="/user/score/update" method="post" name="updateForm">
+            <div class="detail">
+                <div class="detail-header">
+                    <input type="hidden" name="id" th:value="${scoreUpdate.id}">
+                    <div class="write">
+                        <div>작성자&nbsp;:&nbsp;</div>
+                        <div th:text="${scoreUpdate.scoreWriter}"></div>
+                        <input type="hidden" name="scoreWriter" th:value="${scoreUpdate.scoreWriter}" readonly>
+                    </div>
+                    <div class="time">
+                        <div class="time-center" th:text="${scoreUpdate.scoreCreatedTime}"></div>
+                    </div>
+                    <div class="inquiry">
+                        <div>조회&nbsp;:&nbsp;</div>
+                        <div th:text="${scoreUpdate.scoreHits}"></div>
+                    </div>
+                </div>
+                <div class="detail-body">
+                    <div class="detail-title">
+                        <input type="text" name="scoreTitle" class="scoreTitle" th:value="${scoreUpdate.scoreTitle}">
+                    </div>
+                </div>
+                <div class="detail-footer">
+                    <div class="detail-content">
+                        <textarea name="scoreContents" cols="30" rows="10" class="scoreContents"
+                                  th:text="${scoreUpdate.scoreContents}"></textarea>
+                    </div>
+                </div>
+                <input type="hidden" name="scoreHits" th:value="${scoreUpdate.scoreHits}">
+            </div>
+            <button type="submit">수정하기</button>
+        </form>
+    </div>
+</div>
+<script>
+    document.getElementById("title").innerText = "악보공유";
+</script>
+</body>
+</html>
